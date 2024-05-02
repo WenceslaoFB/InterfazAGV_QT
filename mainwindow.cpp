@@ -422,6 +422,8 @@ void MainWindow::on_vel_slid_bot_pressed()
 
 void MainWindow::on_but_CMD_pressed()
 {
+    QString Function_Str = ui->line_function->text();
+
     QString Index_Str = ui->line_Index->text();
 
     QString SubIndex_Str = ui->line_subIndex->text();
@@ -435,12 +437,12 @@ void MainWindow::on_but_CMD_pressed()
     switch(ui->box_ID->currentIndex()){
     case 0:
         //ui->line->setText("01 " + Index_Str + SubIndex_Str);
-        Send_Str = ("01 "+Index_Str+SubIndex_Str+Data_Str);
+        Send_Str = ("01 "+Function_Str+Index_Str+SubIndex_Str+Data_Str);
         //ui->line->setText(Send_Str);
         break;
     case 1:
         //ui->line->setText("07 " + Index_Str + SubIndex_Str);
-        Send_Str = ("07 "+Index_Str+SubIndex_Str+Data_Str);
+        Send_Str = ("07 "+Function_Str+Index_Str+SubIndex_Str+Data_Str);
         //ui->line->setText(Send_Str);
         break;
     }
@@ -471,7 +473,7 @@ void MainWindow::on_but_CMD_pressed()
     QString strTest2;
     for(int b = 0; b < 9;b++)
         strTest2 = strTest2 + QString("%1").arg(payloadCANs[b], 2, 16, QChar('0')).toUpper();
-    ui->line2->setText(strTest2);
+    //ui->line2->setText(strTest2);
     EnviarComando(0x0B, 0xD7, payloadCANs);
 }
 
@@ -493,12 +495,13 @@ void MainWindow::on_bot_INV_pressed()
 
 void MainWindow::on_SLID_distance_valueChanged(int DISTANCE_slid)
 {
-    ui->spin_distance->setValue(DISTANCE_slid);
-    distance_sensor.f=(float)DISTANCE_slid+0.0;
-    crearArrayCMD(0xAF,ID_M_VEL);
-    EnviarComando(0x0B,0xAF,payloadCAN);
-    //buscar forma de pasar el numero del slider a comando
-
+    if(Dist_enable == 1){
+        ui->spin_distance->setValue(DISTANCE_slid);
+        distance_sensor.f=(float)DISTANCE_slid+0.0;
+        crearArrayCMD(0xAF,ID_M_VEL);
+        EnviarComando(0x0B,0xAF,payloadCAN);
+        //buscar forma de pasar el numero del slider a comando
+    }
 }
 
 
@@ -533,3 +536,25 @@ void MainWindow::on_pushButton_PID_Steering_pressed()
 
 
 }
+
+void MainWindow::on_back_but_CONTROL_pressed()
+{
+    ui->stackedWidget->setCurrentIndex(PRINCIPAL);
+}
+
+
+void MainWindow::on_but_go_CONTROL_pressed()
+{
+    ui->stackedWidget->setCurrentIndex(CONTROL);
+}
+
+
+void MainWindow::on_but_enable_dist_released()
+{
+    if(Dist_enable == 0){
+        Dist_enable = 1;
+    }else{
+        Dist_enable = 0;
+    }
+}
+

@@ -90,6 +90,12 @@ private slots:
 
     void on_pushButton_PID_Steering_pressed();
 
+    void on_back_but_CONTROL_pressed();
+
+    void on_but_go_CONTROL_pressed();
+
+    void on_but_enable_dist_released();
+
 private:
     Ui::MainWindow *ui;
 
@@ -102,7 +108,7 @@ private:
     void EnviarComando(uint8_t length, uint8_t cmd, uint8_t payloadSEND[]);
 
     uint8_t TX[256], payloadCAN[256],RX[256],indiceRX_r=0,indiceRX_t=0, sensorDats[9];
-    uint8_t payloadCANs[9], INV_1 = 0;
+    uint8_t payloadCANs[9], INV_1 = 0, Dist_enable = 0;
     float vel_aux = 0, vel_slid = 0, pos_aux=0;
 
     _sWork pos_cmd, pos_ing, velocidad_cmd, distance_sensor,KP_SteeringMotor,KD_SteeringMotor,KI_SteeringMotor;
@@ -125,5 +131,13 @@ private:
 
     //Manual
 #define MANUAL_CMD 0xD7
+
+//Defines para pantallas
+#define PRINCIPAL 1
+#define CONTROL 0
+#define SELECCION 2
+#define VIAJANDO 3
+#define LLEGADA 4
+#define LOGIN 5
 };
 #endif // MAINWINDOW_H
