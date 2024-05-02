@@ -1,0 +1,1646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>848</width>
+    <height>428</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>831</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTabWidget::pane {
+    /* El área de contenido del TabWidget */
+    background-color: #94a49c;  /* Fondo del área de contenido */
+    border: 2px solid #149c44;  /* Borde alrededor del área de contenido */
+}
+
+QTabBar {
+    /* El contenedor de las pestañas */
+    background-color: transparent;  /* Deja transparente para mostrar bordes */
+}
+
+QTabBar::tab {
+    /* Estilo para las pestañas */
+    background-color: #94a49c;
+    border: 1px solid #149c44;
+    padding: 5px 10px;  /* Espaciado interno para las pestañas */
+    margin-right: 2px;  /* Espaciado entre las pestañas */
+}
+
+QTabBar::tab:selected {
+    /* Estilo para la pestaña seleccionada */
+    background-color: #149c44;  /* Pestaña seleccionada tiene color más oscuro */
+    color: white;  /* Color del texto de la pestaña seleccionada */
+}
+
+QTabBar::tab:!selected {
+    /* Estilo para pestañas no seleccionadas */
+    color: black;
+}
+
+QTabBar::tab:hover {
+    /* Estilo para pestañas cuando se pasa el ratón por encima */
+    background-color: #94c4a2;  /* Cambio de color al pasar el ratón */
+}</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Motor Dirección</string>
+     </attribute>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>0</y>
+        <width>581</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout"/>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="minimumSize">
+            <size>
+             <width>250</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>250</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+    color: #14342c;
+    font-weight: bold;
+}</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Control de Motor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="EN_DIR">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+           </property>
+           <property name="text">
+            <string>Enable</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="DIS_DIR">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+           </property>
+           <property name="text">
+            <string>Disable</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="minimumSize">
+            <size>
+             <width>250</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Dirección [Grados]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="LINE_POS">
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+           </property>
+           <property name="inputMethodHints">
+            <set>Qt::ImhDigitsOnly</set>
+           </property>
+           <property name="frame">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="POS_BUT">
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+           </property>
+           <property name="text">
+            <string>Enviar</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Motor Velocidad</string>
+     </attribute>
+     <widget class="QWidget" name="horizontalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>0</y>
+        <width>601</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4"/>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0,0,0">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_5">
+           <property name="minimumSize">
+            <size>
+             <width>250</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Control de Motor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="EN_VEL">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+           </property>
+           <property name="text">
+            <string>Enable</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="DIS_VEL">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+           </property>
+           <property name="text">
+            <string>Disable</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="bot_INV">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+           </property>
+           <property name="text">
+            <string>Invertir Giro</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0,0,0,0">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <property name="leftMargin">
+          <number>9</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_6">
+           <property name="minimumSize">
+            <size>
+             <width>250</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Velocidad [RPM]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="B_500_RPM">
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+           </property>
+           <property name="text">
+            <string>500</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="B_1000_RPM">
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+           </property>
+           <property name="text">
+            <string>1000</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="B_1500_RPM">
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+           </property>
+           <property name="text">
+            <string>1500</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="B_2000_RPM">
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+           </property>
+           <property name="text">
+            <string>2000</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QSlider" name="SLID_RPM">
+             <property name="styleSheet">
+              <string notr="true">QSlider::groove:horizontal {
+    /* Estilo del track del slider */
+    border: 1px solid #265c4d;
+    height: 8px;
+    background: #149c44;
+    border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+    /* Estilo del handle (parte que se arrastra) */
+    background: #265c4d;
+    border: 2px solid #149c44;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    margin: -4px 0;  /* Centra el handle en el track */
+}
+
+QSlider::add-page:horizontal {
+    /* Estilo de la parte del track a la derecha del handle */
+    background: #265c4d;
+}
+
+QSlider::sub-page:horizontal {
+    /* Estilo de la parte del track a la izquierda del handle */
+    background: #149c44;
+}</string>
+             </property>
+             <property name="minimum">
+              <number>500</number>
+             </property>
+             <property name="maximum">
+              <number>3000</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spin_rpm">
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QSpinBox {
+    /* Estilo para el QSpinBox cuando es solo lectura */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+    border-radius: 8px;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+}</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="minimum">
+              <number>500</number>
+             </property>
+             <property name="maximum">
+              <number>3000</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="vel_slid_bot">
+             <property name="maximumSize">
+              <size>
+               <width>80</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+             </property>
+             <property name="text">
+              <string>Enviar</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Comandos</string>
+     </attribute>
+     <widget class="QWidget" name="verticalLayoutWidget_5">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>0</y>
+        <width>791</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_11" stretch="0,0,6">
+       <item>
+        <widget class="QLabel" name="label_11">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Creación de Comandos&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,0,0,6">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <widget class="QLabel" name="label_7">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700; color:#14342c;&quot;&gt;ID &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="box_ID">
+             <property name="styleSheet">
+              <string notr="true">QComboBox {
+    /* Estilo inicial del ComboBox */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+    color: white;
+    border-radius: 8px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+QComboBox::drop-down {
+    /* Estilo del botón de despliegue */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+    border-radius: 8px;
+    width: 15px;
+}
+
+QComboBox::down-arrow {
+    /* Estilo de la flecha del ComboBox */
+    color: #265c4d;
+}
+
+QComboBox::drop-down:pressed {
+    /* Estilo del botón de despliegue cuando está presionado */
+    background-color: #265c4d;
+    border: 2px solid #265c4d;
+}
+
+QComboBox QAbstractItemView {
+    /* Estilo de la lista desplegable */
+    background-color: #149c44;
+    color: white;
+    border: 2px solid #265c4d;
+    border-radius: 8px;
+    padding: 5px;
+}
+</string>
+             </property>
+             <property name="currentIndex">
+              <number>1</number>
+             </property>
+             <item>
+              <property name="text">
+               <string>01</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>07</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <widget class="QLabel" name="label_8">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:700; color:#14342c;&quot;&gt;Indice&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="line_Index">
+             <property name="styleSheet">
+              <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <widget class="QLabel" name="label_9">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:700; color:#14342c;&quot;&gt;Sub-Indice&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="line_subIndex">
+             <property name="styleSheet">
+              <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_10">
+           <item>
+            <widget class="QLabel" name="label_10">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:700; color:#14342c;&quot;&gt;Data&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="line_Data">
+             <property name="styleSheet">
+              <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="but_CMD">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string>Send</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLineEdit" name="line">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>270</y>
+        <width>221</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="line2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>310</y>
+        <width>221</width>
+        <height>24</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="SLID_distance">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>270</y>
+        <width>41</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QSlider::groove:vertical {
+    /* Estilo del track del slider vertical */
+    border: 1px solid #265c4d;
+    width: 8px;
+    background: #149c44;
+    border-radius: 4px;
+}
+
+QSlider::handle:vertical {
+    /* Estilo del handle (parte que se arrastra) en slider vertical */
+    background: #265c4d;
+    border: 2px solid #149c44;
+    width: 20px;
+    height: 15px;
+    border-radius: 8px;
+    margin: 0 -4px;  /* Centra el handle en el track */
+}
+
+QSlider::add-page:vertical {
+    /* Estilo de la parte del track por debajo del handle */
+    background: #265c4d;
+}
+
+QSlider::sub-page:vertical {
+    /* Estilo de la parte del track por encima del handle */
+    background: #149c44;
+}</string>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spin_distance">
+      <property name="geometry">
+       <rect>
+        <x>730</x>
+        <y>310</y>
+        <width>39</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>50</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QSpinBox {
+    /* Estilo para el QSpinBox cuando es solo lectura */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+    border-radius: 8px;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+}</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="minimum">
+       <number>0</number>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>200</y>
+        <width>221</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; color:#14342c;&quot;&gt;Simulacion de &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; color:#14342c;&quot;&gt;Distancia&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Sensores</string>
+     </attribute>
+     <widget class="QWidget" name="horizontalLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>811</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QCheckBox" name="sens0">
+         <property name="styleSheet">
+          <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+         </property>
+         <property name="text">
+          <string>Sensor 0</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="sens1">
+         <property name="styleSheet">
+          <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+         </property>
+         <property name="text">
+          <string>Sensor 1</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="sens2">
+         <property name="styleSheet">
+          <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+         </property>
+         <property name="text">
+          <string>Sensor 2</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="sens3">
+         <property name="styleSheet">
+          <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+         </property>
+         <property name="text">
+          <string>Sensor 3</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="sens4">
+         <property name="styleSheet">
+          <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+         </property>
+         <property name="text">
+          <string>Sensor 4</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="sens5">
+         <property name="styleSheet">
+          <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+         </property>
+         <property name="text">
+          <string>Sensor 5</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="sens6">
+         <property name="styleSheet">
+          <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+         </property>
+         <property name="text">
+          <string>Sensor 6</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="sens7">
+         <property name="styleSheet">
+          <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+         </property>
+         <property name="text">
+          <string>Sensor 7</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="send_sens">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>130</y>
+        <width>131</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="whatsThis">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;Send&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+      </property>
+      <property name="text">
+       <string>Send</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_PID_Steering">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>300</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+      </property>
+      <property name="text">
+       <string>Send</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>361</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Simulacion de Sensores&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>190</y>
+        <width>61</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:700; color:#14342c;&quot;&gt;PID&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>230</y>
+        <width>321</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_14">
+         <item>
+          <widget class="QLabel" name="label_KP_steering">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700; color:#14342c;&quot;&gt;KP&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="line_kp_steering">
+           <property name="styleSheet">
+            <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_13">
+         <item>
+          <widget class="QLabel" name="label_KD_steering">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700; color:#14342c;&quot;&gt;KD&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="line_kd_steering">
+           <property name="styleSheet">
+            <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_12">
+         <item>
+          <widget class="QLabel" name="label_KI_steering">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700; color:#14342c;&quot;&gt;KI&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="line_ki_steering">
+           <property name="styleSheet">
+            <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>848</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
