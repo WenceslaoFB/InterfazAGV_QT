@@ -107,13 +107,157 @@ void MainWindow::OnQSerialPort1Rx(){
     //ui->lineEdit->setText(strhex);
 }
 
-void MainWindow::inicio(){
+//void MainWindow::inicio(){
 
-    crearArrayCMD(POSITION_MODE,ID_M_DIREC);
-    EnviarComando(0x0B, POSITION_MODE, payloadCAN);
+//    crearArrayCMD(POSITION_MODE,ID_M_DIREC);
+//    EnviarComando(0x0B, POSITION_MODE, payloadCAN);
 
-    crearArrayCMD(VELOCITY_MODE,ID_M_VEL);
-    EnviarComando(0x0B, VELOCITY_MODE, payloadCAN);
+//    crearArrayCMD(VELOCITY_MODE,ID_M_VEL);
+//    EnviarComando(0x0B, VELOCITY_MODE, payloadCAN);
+//}
+
+void MainWindow::Decode(){
+    if(ringRx.iW == ringRx.iR)
+        return;
+
+    switch (ringRx.header)
+    {
+    case 0:
+        if (ringRx.buf[ringRx.iR] == 'U')
+            ringRx.header++;
+        else{
+            ringRx.header = 0;
+            //ringRx.iR--;
+        }
+        break;
+    case 1:
+        if (ringRx.buf[ringRx.iR] == 'N')
+            ringRx.header++;
+        else{
+            ringRx.header = 0;
+            //ringRx.iR--;
+        }
+        break;
+    case 2:
+        if (ringRx.buf[ringRx.iR] == 'E')
+            ringRx.header++;
+        else{
+            ringRx.header = 0;
+            //ringRx.iR--;
+        }
+        break;
+    case 3:
+        if (ringRx.buf[ringRx.iR] == 'R'){
+            ringRx.header++;
+
+        }
+        else{
+            ringRx.header = 0;
+            //ringRx.iR--;
+        }
+        break;
+    case 4:
+        ringRx.nBytes = ringRx.buf[ringRx.iR];
+        ringRx.header++;
+        break;
+    case 5:
+        if (ringRx.buf[ringRx.iR] == 0x00)
+            ringRx.header++;
+        else{
+            ringRx.header = 0;
+            //ringRx.iR--;
+        }
+        break;
+    case 6:
+        if (ringRx.buf[ringRx.iR] == ':')
+        {
+            ringRx.cks= 'U'^'N'^'E'^'R'^ringRx.nBytes^0x00^':';
+            ringRx.header++;
+            ringRx.iData = ringRx.iR+1;
+            //LED_RED_TOGGLE();
+        }
+        else{
+            ringRx.header = 0;
+            //ringRx.iR--;
+        }
+        break;
+
+    case 7:
+        UpdateChecksum();
+        CheckBytesLeft();
+        if(ringRx.nBytes == 0)
+        {
+            CheckChecksumAndReceiveData();
+        }
+        break;
+    default:
+        ringRx.header = 0;
+        break;
+    }
+    ringRx.iR++;
+}
+
+void MainWindow::UpdateChecksum()
+{
+    if(ringRx.nBytes > 1)
+    {
+        ringRx.cks ^= ringRx.buf[ringRx.iR];
+    }
+}
+
+void MainWindow::CheckBytesLeft()
+{
+    ringRx.nBytes--;
+    if(ringRx.nBytes == 0)
+    {
+        ringRx.header = 0;
+    }
+}
+
+void MainWindow::CheckChecksumAndReceiveData()
+{
+    if(ringRx.cks == ringRx.buf[ringRx.iR])
+    {
+        RecibirDatos(ringRx.iData);
+    }
+}
+
+void MainWindow::RecibirDatos(uint8_t head){
+    static uint8_t cont=0;
+    cont++;
+    switch (ringRx.buf[head++]){
+        case MOTOR_DIR_DATA1_CMD:
+        RealPositionDIR.i8[0] = ringRx.buf[head++];
+        RealPositionDIR.i8[1] = ringRx.buf[head++];
+        RealPositionDIR.i8[2] = ringRx.buf[head++];
+        RealPositionDIR.i8[3] = ringRx.buf[head++];
+        StatusWordDIR.u16[0] = ringRx.buf[head++];
+        StatusWordDIR.u16[1] = ringRx.buf[head++];
+        RealCurrentDIR.i16[0] = ringRx.buf[head++];
+        RealCurrentDIR.i16[1] = ringRx.buf[head++];
+        break;
+        case MOTOR_DIR_DATA2_CMD:
+        //ta vacio
+        break;
+        case MOTOR_SPEED_DATA1_CMD:
+        RealSpeedVEL.i8[0] = ringRx.buf[head++];
+        RealSpeedVEL.i8[1] = ringRx.buf[head++];
+        RealSpeedVEL.i8[2] = ringRx.buf[head++];
+        RealSpeedVEL.i8[3] = ringRx.buf[head++];
+        StatusWordVEL.u16[0] = ringRx.buf[head++];
+        StatusWordVEL.u16[1] = ringRx.buf[head++];
+        RealCurrentVEL.i16[0] = ringRx.buf[head++];
+        RealCurrentVEL.i16[1] = ringRx.buf[head++];
+        break;
+        case MOTOR_SPEED_DATA2_CMD:
+        //ta vacio
+        break;
+        case FAULT_CMD:
+        flagFaults.byte = ringRx.buf[head++];
+        break;
+    default:
+        break;
+    }
 }
 
 void MainWindow::crearArrayCMD(uint8_t cmd, uint8_t id){
