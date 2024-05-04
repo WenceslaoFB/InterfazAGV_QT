@@ -120,6 +120,18 @@ private slots:
 
     void RecibirDatos(uint8_t head);
 
+    void on_but_go_ESTACION_released();
+
+    void on_but_go_USUARIOS_released();
+
+    void on_but_go_DATOS_released();
+
+    void on_back_but_DATOS_released();
+
+    void on_back_but_LOGIN_released();
+
+    void on_back_but_ESTACION_released();
+
 private:
     Ui::MainWindow *ui;
 
@@ -161,12 +173,13 @@ private:
 #define MANUAL_CMD                          0xD7
 
 //Defines para pantallas
-#define PRINCIPAL                           1
-#define CONTROL                             0
-#define SELECCION                           2
-#define VIAJANDO                            3
-#define LLEGADA                             4
-#define LOGIN                               5
+    const int PRINCIPAL = 1;
+    const int CONTROL = 0;
+    const int SELECCION = 2;
+    const int VIAJANDO = 3;
+    const int LLEGADA = 4;
+    const int LOGIN = 5;
+    const int DATOS = 6;
 
     //Defines para comandos para recibir datos
 #define MOTOR_SPEED_DATA1_CMD               0xB0

@@ -697,8 +697,46 @@ void MainWindow::on_but_enable_dist_released()
 {
     if(Dist_enable == 0){
         Dist_enable = 1;
+        ui->label_dist->setText("Habilitada");
     }else{
         Dist_enable = 0;
+        ui->label_dist->setText("Deshabilitada");
     }
+}
+
+
+void MainWindow::on_but_go_ESTACION_released()
+{
+    ui->stackedWidget->setCurrentIndex(SELECCION);
+}
+
+
+void MainWindow::on_but_go_USUARIOS_released()
+{
+    ui->stackedWidget->setCurrentIndex(LOGIN);
+}
+
+
+void MainWindow::on_but_go_DATOS_released()
+{
+    ui->stackedWidget->setCurrentIndex(DATOS);
+}
+
+
+void MainWindow::on_back_but_DATOS_released()
+{
+    ui->stackedWidget->setCurrentIndex(PRINCIPAL);
+}
+
+
+void MainWindow::on_back_but_LOGIN_released()
+{
+    ui->stackedWidget->setCurrentIndex(PRINCIPAL);
+}
+
+
+void MainWindow::on_back_but_ESTACION_released()
+{
+    ui->stackedWidget->setCurrentIndex(PRINCIPAL);
 }
 

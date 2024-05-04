@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1029</width>
+    <width>1080</width>
     <height>600</height>
    </rect>
   </property>
@@ -17,22 +17,22 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>0</y>
-      <width>1022</width>
-      <height>598</height>
+      <width>1071</width>
+      <height>571</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
-    <widget class="QWidget" name="page">
+    <widget class="QWidget" name="CONTROL">
      <widget class="QTabWidget" name="tabWidget">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>40</y>
-        <width>1046</width>
+        <x>0</x>
+        <y>30</y>
+        <width>1061</width>
         <height>531</height>
        </rect>
       </property>
@@ -73,7 +73,7 @@ QTabBar::tab:hover {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -82,7 +82,7 @@ QTabBar::tab:hover {
        <widget class="QLabel" name="label_2">
         <property name="geometry">
          <rect>
-          <x>160</x>
+          <x>220</x>
           <y>50</y>
           <width>250</width>
           <height>101</height>
@@ -132,7 +132,7 @@ QTabBar::tab:hover {
        <widget class="QPushButton" name="EN_DIR">
         <property name="geometry">
          <rect>
-          <x>160</x>
+          <x>220</x>
           <y>200</y>
           <width>250</width>
           <height>70</height>
@@ -175,7 +175,7 @@ QPushButton:pressed {
        <widget class="QPushButton" name="DIS_DIR">
         <property name="geometry">
          <rect>
-          <x>160</x>
+          <x>220</x>
           <y>350</y>
           <width>250</width>
           <height>70</height>
@@ -218,7 +218,7 @@ QPushButton:pressed {
        <widget class="QLabel" name="label_3">
         <property name="geometry">
          <rect>
-          <x>520</x>
+          <x>600</x>
           <y>50</y>
           <width>250</width>
           <height>101</height>
@@ -265,7 +265,7 @@ QPushButton:pressed {
        <widget class="QLineEdit" name="LINE_POS">
         <property name="geometry">
          <rect>
-          <x>520</x>
+          <x>600</x>
           <y>200</y>
           <width>250</width>
           <height>70</height>
@@ -295,7 +295,7 @@ QPushButton:pressed {
        <widget class="QPushButton" name="POS_BUT">
         <property name="geometry">
          <rect>
-          <x>520</x>
+          <x>600</x>
           <y>350</y>
           <width>250</width>
           <height>70</height>
@@ -337,7 +337,7 @@ QPushButton:pressed {
        <widget class="QPushButton" name="DIS_VEL">
         <property name="geometry">
          <rect>
-          <x>160</x>
+          <x>220</x>
           <y>350</y>
           <width>250</width>
           <height>70</height>
@@ -380,7 +380,7 @@ QPushButton:pressed {
        <widget class="QLabel" name="label_5">
         <property name="geometry">
          <rect>
-          <x>160</x>
+          <x>220</x>
           <y>50</y>
           <width>250</width>
           <height>101</height>
@@ -418,7 +418,7 @@ QPushButton:pressed {
        <widget class="QPushButton" name="EN_VEL">
         <property name="geometry">
          <rect>
-          <x>160</x>
+          <x>220</x>
           <y>200</y>
           <width>250</width>
           <height>70</height>
@@ -461,7 +461,7 @@ QPushButton:pressed {
        <widget class="QPushButton" name="bot_INV">
         <property name="geometry">
          <rect>
-          <x>160</x>
+          <x>220</x>
           <y>275</y>
           <width>250</width>
           <height>70</height>
@@ -501,10 +501,10 @@ QPushButton:pressed {
          <string>Invertir Giro</string>
         </property>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>500</x>
+          <x>560</x>
           <y>53</y>
           <width>331</width>
           <height>411</height>
@@ -1167,15 +1167,24 @@ QPushButton:pressed {
        <widget class="QWidget" name="horizontalLayoutWidget_3">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>20</x>
           <y>80</y>
-          <width>991</width>
+          <width>1021</width>
           <height>80</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <property name="spacing">
+          <number>15</number>
+         </property>
          <item>
           <widget class="QCheckBox" name="sens0">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QCheckBox {
     /* Estilo del texto de la checkbox */
@@ -1210,6 +1219,12 @@ QCheckBox::indicator:unchecked:pressed {
          </item>
          <item>
           <widget class="QCheckBox" name="sens1">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QCheckBox {
     /* Estilo del texto de la checkbox */
@@ -1244,6 +1259,12 @@ QCheckBox::indicator:unchecked:pressed {
          </item>
          <item>
           <widget class="QCheckBox" name="sens2">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QCheckBox {
     /* Estilo del texto de la checkbox */
@@ -1278,6 +1299,12 @@ QCheckBox::indicator:unchecked:pressed {
          </item>
          <item>
           <widget class="QCheckBox" name="sens3">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QCheckBox {
     /* Estilo del texto de la checkbox */
@@ -1312,6 +1339,12 @@ QCheckBox::indicator:unchecked:pressed {
          </item>
          <item>
           <widget class="QCheckBox" name="sens4">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QCheckBox {
     /* Estilo del texto de la checkbox */
@@ -1346,6 +1379,12 @@ QCheckBox::indicator:unchecked:pressed {
          </item>
          <item>
           <widget class="QCheckBox" name="sens5">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QCheckBox {
     /* Estilo del texto de la checkbox */
@@ -1380,6 +1419,12 @@ QCheckBox::indicator:unchecked:pressed {
          </item>
          <item>
           <widget class="QCheckBox" name="sens6">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QCheckBox {
     /* Estilo del texto de la checkbox */
@@ -1414,6 +1459,12 @@ QCheckBox::indicator:unchecked:pressed {
          </item>
          <item>
           <widget class="QCheckBox" name="sens7">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QCheckBox {
     /* Estilo del texto de la checkbox */
@@ -1451,10 +1502,10 @@ QCheckBox::indicator:unchecked:pressed {
        <widget class="QPushButton" name="send_sens">
         <property name="geometry">
          <rect>
-          <x>380</x>
+          <x>400</x>
           <y>170</y>
-          <width>201</width>
-          <height>71</height>
+          <width>200</width>
+          <height>70</height>
          </rect>
         </property>
         <property name="font">
@@ -1491,9 +1542,9 @@ QPushButton:pressed {
         <property name="geometry">
          <rect>
           <x>100</x>
-          <y>410</y>
-          <width>141</width>
-          <height>61</height>
+          <y>405</y>
+          <width>200</width>
+          <height>70</height>
          </rect>
         </property>
         <property name="font">
@@ -1561,8 +1612,8 @@ QPushButton:pressed {
        <widget class="QLabel" name="label_13">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>270</y>
+          <x>150</x>
+          <y>260</y>
           <width>91</width>
           <height>50</height>
          </rect>
@@ -1596,8 +1647,8 @@ QPushButton:pressed {
        <widget class="QWidget" name="horizontalLayoutWidget_4">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>330</y>
+          <x>40</x>
+          <y>320</y>
           <width>321</width>
           <height>67</height>
          </rect>
@@ -1713,7 +1764,7 @@ QPushButton:pressed {
        <widget class="QSlider" name="SLID_distance">
         <property name="geometry">
          <rect>
-          <x>630</x>
+          <x>910</x>
           <y>260</y>
           <width>41</width>
           <height>201</height>
@@ -1802,69 +1853,56 @@ QSlider::sub-page:vertical {
          <bool>true</bool>
         </property>
        </widget>
+       <widget class="QFrame" name="frame">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>80</y>
+          <width>1037</width>
+          <height>78</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">	border: 3px solid;
+	border-radius: 10px;
+	border-color:  #1c9c4c;
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
        <widget class="QWidget" name="">
         <property name="geometry">
          <rect>
           <x>680</x>
           <y>350</y>
           <width>221</width>
-          <height>61</height>
+          <height>111</height>
          </rect>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QSpinBox" name="spin_distance">
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QSpinBox {
-    /* Estilo para el QSpinBox cuando es solo lectura */
-    background-color: #149c44;
-    border: 2px solid #265c4d;
-    border-radius: 8px;
-    color: white;
-    padding: 5px;
-    font-weight: bold;
-    text-align: center;
-}</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-           <property name="buttonSymbols">
-            <enum>QAbstractSpinBox::NoButtons</enum>
-           </property>
-           <property name="minimum">
-            <number>0</number>
-           </property>
-           <property name="maximum">
-            <number>20</number>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="but_enable_dist">
-           <property name="font">
-            <font>
-             <pointsize>16</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton {
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QPushButton" name="but_enable_dist">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
     /* Estilo inicial del botón */
     background-color: #149c44;
     border: 2px solid #265c4d;
@@ -1879,20 +1917,96 @@ QPushButton:pressed {
     border: 2px solid #265c4d;
 	color: white;
 }</string>
+             </property>
+             <property name="text">
+              <string>Enable</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spin_distance">
+             <property name="maximumSize">
+              <size>
+               <width>70</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QSpinBox {
+    /* Estilo para el QSpinBox cuando es solo lectura */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+    border-radius: 8px;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+}</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="minimum">
+              <number>0</number>
+             </property>
+             <property name="maximum">
+              <number>20</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_dist">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+             <underline>true</underline>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: #14342c;</string>
            </property>
            <property name="text">
-            <string>Enable</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#14342c;&quot;&gt;Deshabilitada&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
         </layout>
        </widget>
+       <zorder>frame</zorder>
+       <zorder>horizontalLayoutWidget_3</zorder>
+       <zorder>send_sens</zorder>
+       <zorder>pushButton_PID_Steering</zorder>
+       <zorder>label_12</zorder>
+       <zorder>label_13</zorder>
+       <zorder>horizontalLayoutWidget_4</zorder>
+       <zorder>SLID_distance</zorder>
+       <zorder>label_14</zorder>
+       <zorder>layoutWidget</zorder>
+       <zorder>label_dist</zorder>
       </widget>
      </widget>
      <widget class="QPushButton" name="back_but_CONTROL">
       <property name="geometry">
        <rect>
-        <x>970</x>
+        <x>1010</x>
         <y>10</y>
         <width>51</width>
         <height>51</height>
@@ -1926,24 +2040,60 @@ QPushButton:pressed {
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_2">
-     <widget class="QPushButton" name="but_go_CONTROL">
+    <widget class="QWidget" name="PRINCIPAL">
+     <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
-        <x>150</x>
-        <y>290</y>
-        <width>201</width>
-        <height>71</height>
+        <x>-1</x>
+        <y>33</y>
+        <width>1061</width>
+        <height>461</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QLabel" name="label_PRINC">
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    color: #14342c;
+    font-weight: bold;
+	border: 5px solid;
+	border-radius: 10px;
+	border-color:  #1c9c4c;
+	background-color:  white;
+}</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:26pt; color:#14342c;&quot;&gt;SELECCIONE OPCIÓN DE USO&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QPushButton" name="but_go_CONTROL">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>1000</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
     /* Estilo inicial del botón */
     background-color: #149c44;
     border: 2px solid #265c4d;
@@ -1959,9 +2109,247 @@ QPushButton:pressed {
     border: 2px solid #265c4d;
 	color: white;
 }</string>
+             </property>
+             <property name="text">
+              <string notr="true">Control de Motores</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="but_go_USUARIOS">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+             </property>
+             <property name="text">
+              <string notr="true">Registro/Ingreso</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <widget class="QPushButton" name="but_go_ESTACION">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+             </property>
+             <property name="text">
+              <string notr="true">Elección de Estación</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="but_go_DATOS">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+             </property>
+             <property name="text">
+              <string notr="true">Visualizacion de Datos</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="ESTACION">
+     <widget class="QPushButton" name="back_but_ESTACION">
+      <property name="geometry">
+       <rect>
+        <x>970</x>
+        <y>60</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+		
+	
+	
+	background-color: rgb(255, 0, 0);
+	   color: rgb(0, 0, 0);   
+       border: 2px solid rgb(64, 64, 64);
+       border-radius: 5px;
+    }
+
+    QPushButton:pressed {
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(122, 0, 0);
+    }</string>
       </property>
       <property name="text">
-       <string>Control de Motores</string>
+       <string>X</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="VIAJE"/>
+    <widget class="QWidget" name="LLEGADA"/>
+    <widget class="QWidget" name="LOGIN">
+     <widget class="QPushButton" name="back_but_LOGIN">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>90</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+		
+	
+	
+	background-color: rgb(255, 0, 0);
+	   color: rgb(0, 0, 0);   
+       border: 2px solid rgb(64, 64, 64);
+       border-radius: 5px;
+    }
+
+    QPushButton:pressed {
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(122, 0, 0);
+    }</string>
+      </property>
+      <property name="text">
+       <string>X</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="DATOS">
+     <widget class="QPushButton" name="back_but_DATOS">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>220</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+		
+	
+	
+	background-color: rgb(255, 0, 0);
+	   color: rgb(0, 0, 0);   
+       border: 2px solid rgb(64, 64, 64);
+       border-radius: 5px;
+    }
+
+    QPushButton:pressed {
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(122, 0, 0);
+    }</string>
+      </property>
+      <property name="text">
+       <string>X</string>
       </property>
      </widget>
     </widget>
@@ -1972,7 +2360,7 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1029</width>
+     <width>1080</width>
      <height>21</height>
     </rect>
    </property>
