@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="CONTROL">
      <widget class="QTabWidget" name="tabWidget">
@@ -73,7 +73,7 @@ QTabBar::tab:hover {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -504,35 +504,161 @@ QPushButton:pressed {
        <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>560</x>
-          <y>53</y>
-          <width>331</width>
-          <height>411</height>
+          <x>569</x>
+          <y>405</y>
+          <width>251</width>
+          <height>44</height>
          </rect>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0,0,0,0,0">
-         <property name="spacing">
-          <number>10</number>
-         </property>
-         <property name="leftMargin">
-          <number>9</number>
-         </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QLabel" name="label_6">
-           <property name="minimumSize">
-            <size>
-             <width>250</width>
-             <height>0</height>
-            </size>
-           </property>
+          <widget class="QSpinBox" name="spin_rpm">
            <property name="maximumSize">
             <size>
-             <width>1000</width>
+             <width>100</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSpinBox {
+    /* Estilo para el QSpinBox cuando es solo lectura */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+    border-radius: 8px;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+}</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="minimum">
+            <number>500</number>
+           </property>
+           <property name="maximum">
+            <number>3000</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="vel_slid_bot">
+           <property name="maximumSize">
+            <size>
+             <width>500</width>
              <height>500</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
-            <string notr="true">QLabel {
+            <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+           </property>
+           <property name="text">
+            <string>Enviar</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QPushButton" name="B_1500_RPM">
+        <property name="geometry">
+         <rect>
+          <x>569</x>
+          <y>270</y>
+          <width>250</width>
+          <height>46</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1000</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+        </property>
+        <property name="text">
+         <string>1500</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>569</x>
+          <y>54</y>
+          <width>250</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>250</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1000</width>
+          <height>500</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
     color: #14342c;
     font-weight: bold;
 	border: 3px solid;
@@ -540,34 +666,40 @@ QPushButton:pressed {
 	border-color:  #1c9c4c;
 	background-color:  white;
 }</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#14342c;&quot;&gt;Velocidad &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#14342c;&quot;&gt;[RPM]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
-           </property>
-           <property name="margin">
-            <number>1</number>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="B_500_RPM">
-           <property name="maximumSize">
-            <size>
-             <width>1000</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>18</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton {
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#14342c;&quot;&gt;Velocidad &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#14342c;&quot;&gt;[RPM]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="margin">
+         <number>1</number>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="B_500_RPM">
+        <property name="geometry">
+         <rect>
+          <x>569</x>
+          <y>170</y>
+          <width>250</width>
+          <height>46</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1000</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
     /* Estilo inicial del botón */
     background-color: #149c44;
     border: 2px solid #265c4d;
@@ -583,28 +715,34 @@ QPushButton:pressed {
     border: 2px solid #265c4d;
 	color: white;
 }</string>
-           </property>
-           <property name="text">
-            <string>500</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="B_1000_RPM">
-           <property name="maximumSize">
-            <size>
-             <width>1000</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>18</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton {
+        </property>
+        <property name="text">
+         <string>500</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="B_1000_RPM">
+        <property name="geometry">
+         <rect>
+          <x>569</x>
+          <y>220</y>
+          <width>250</width>
+          <height>46</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1000</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
     /* Estilo inicial del botón */
     background-color: #149c44;
     border: 2px solid #265c4d;
@@ -620,28 +758,34 @@ QPushButton:pressed {
     border: 2px solid #265c4d;
 	color: white;
 }</string>
-           </property>
-           <property name="text">
-            <string>1000</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="B_1500_RPM">
-           <property name="maximumSize">
-            <size>
-             <width>1000</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>18</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton {
+        </property>
+        <property name="text">
+         <string>1000</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="B_2000_RPM">
+        <property name="geometry">
+         <rect>
+          <x>569</x>
+          <y>320</y>
+          <width>250</width>
+          <height>46</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1000</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
     /* Estilo inicial del botón */
     background-color: #149c44;
     border: 2px solid #265c4d;
@@ -657,53 +801,22 @@ QPushButton:pressed {
     border: 2px solid #265c4d;
 	color: white;
 }</string>
-           </property>
-           <property name="text">
-            <string>1500</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="B_2000_RPM">
-           <property name="maximumSize">
-            <size>
-             <width>1000</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>18</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton {
-    /* Estilo inicial del botón */
-    background-color: #149c44;
-    border: 2px solid #265c4d;
-	color: white;
-    border-radius: 8px;
-    padding: 5px 10px;
-	font-weight: bold;
-}
-
-QPushButton:pressed {
-    /* Estilo del botón cuando está presionado */
-    background-color:  #265c4d;
-    border: 2px solid #265c4d;
-	color: white;
-}</string>
-           </property>
-           <property name="text">
-            <string>2000</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSlider" name="SLID_RPM">
-           <property name="styleSheet">
-            <string notr="true">QSlider::groove:horizontal {
+        </property>
+        <property name="text">
+         <string>2000</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="SLID_RPM">
+        <property name="geometry">
+         <rect>
+          <x>569</x>
+          <y>380</y>
+          <width>250</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QSlider::groove:horizontal {
     /* Estilo del track del slider */
     border: 1px solid #265c4d;
     height: 8px;
@@ -730,103 +843,16 @@ QSlider::sub-page:horizontal {
     /* Estilo de la parte del track a la izquierda del handle */
     background: #149c44;
 }</string>
-           </property>
-           <property name="minimum">
-            <number>500</number>
-           </property>
-           <property name="maximum">
-            <number>3000</number>
-           </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout">
-           <item>
-            <widget class="QSpinBox" name="spin_rpm">
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>100</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>14</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QSpinBox {
-    /* Estilo para el QSpinBox cuando es solo lectura */
-    background-color: #149c44;
-    border: 2px solid #265c4d;
-    border-radius: 8px;
-    color: white;
-    padding: 5px;
-    font-weight: bold;
-    text-align: center;
-}</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-             <property name="buttonSymbols">
-              <enum>QAbstractSpinBox::NoButtons</enum>
-             </property>
-             <property name="minimum">
-              <number>500</number>
-             </property>
-             <property name="maximum">
-              <number>3000</number>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="vel_slid_bot">
-             <property name="maximumSize">
-              <size>
-               <width>500</width>
-               <height>500</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>14</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton {
-    /* Estilo inicial del botón */
-    background-color: #149c44;
-    border: 2px solid #265c4d;
-	color: white;
-    border-radius: 8px;
-    padding: 5px 10px;
-	font-weight: bold;
-}
-
-QPushButton:pressed {
-    /* Estilo del botón cuando está presionado */
-    background-color:  #265c4d;
-    border: 2px solid #265c4d;
-	color: white;
-}</string>
-             </property>
-             <property name="text">
-              <string>Enviar</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
+        </property>
+        <property name="minimum">
+         <number>500</number>
+        </property>
+        <property name="maximum">
+         <number>3000</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_3">
@@ -1173,7 +1199,7 @@ QPushButton:pressed {
           <height>80</height>
          </rect>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <layout class="QHBoxLayout" name="SENSOR_lay">
          <property name="spacing">
           <number>15</number>
          </property>
@@ -1541,7 +1567,7 @@ QPushButton:pressed {
        <widget class="QPushButton" name="pushButton_PID_Steering">
         <property name="geometry">
          <rect>
-          <x>100</x>
+          <x>105</x>
           <y>405</y>
           <width>200</width>
           <height>70</height>
@@ -1612,7 +1638,7 @@ QPushButton:pressed {
        <widget class="QLabel" name="label_13">
         <property name="geometry">
          <rect>
-          <x>150</x>
+          <x>160</x>
           <y>260</y>
           <width>91</width>
           <height>50</height>
@@ -1643,123 +1669,6 @@ QPushButton:pressed {
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:700; color:#14342c;&quot;&gt;PID&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
-       </widget>
-       <widget class="QWidget" name="horizontalLayoutWidget_4">
-        <property name="geometry">
-         <rect>
-          <x>40</x>
-          <y>320</y>
-          <width>321</width>
-          <height>67</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_6">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_14">
-           <item>
-            <widget class="QLabel" name="label_KP_steering">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>25</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; color:#14342c;&quot;&gt;KP&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="line_kp_steering">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">    background-color: white;
-    border: 2px solid #265c4d;
-	color: white;
-    border-radius: 8px;
-    padding: 5px 10px;
-	font-weight: bold;</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_13">
-           <item>
-            <widget class="QLabel" name="label_KD_steering">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>25</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; color:#14342c;&quot;&gt;KD&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="line_kd_steering">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">    background-color: white;
-    border: 2px solid #265c4d;
-	color: white;
-    border-radius: 8px;
-    padding: 5px 10px;
-	font-weight: bold;</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_12">
-           <item>
-            <widget class="QLabel" name="label_KI_steering">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>25</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; color:#14342c;&quot;&gt;KI&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="line_ki_steering">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">    background-color: white;
-    border: 2px solid #265c4d;
-	color: white;
-    border-radius: 8px;
-    padding: 5px 10px;
-	font-weight: bold;</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
        </widget>
        <widget class="QSlider" name="SLID_distance">
         <property name="geometry">
@@ -1875,34 +1784,55 @@ QSlider::sub-page:vertical {
          <enum>QFrame::Raised</enum>
         </property>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QLabel" name="label_dist">
         <property name="geometry">
          <rect>
-          <x>680</x>
-          <y>350</y>
+          <x>681</x>
+          <y>429</y>
           <width>221</width>
-          <height>111</height>
+          <height>31</height>
          </rect>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <widget class="QPushButton" name="but_enable_dist">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>70</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>16</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton {
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <bold>true</bold>
+          <underline>true</underline>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #14342c;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#14342c;&quot;&gt;Deshabilitada&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="but_enable_dist">
+        <property name="geometry">
+         <rect>
+          <x>682</x>
+          <y>352</y>
+          <width>141</width>
+          <height>70</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
     /* Estilo inicial del botón */
     background-color: #149c44;
     border: 2px solid #265c4d;
@@ -1917,28 +1847,34 @@ QPushButton:pressed {
     border: 2px solid #265c4d;
 	color: white;
 }</string>
-             </property>
-             <property name="text">
-              <string>Enable</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QSpinBox" name="spin_distance">
-             <property name="maximumSize">
-              <size>
-               <width>70</width>
-               <height>70</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QSpinBox {
+        </property>
+        <property name="text">
+         <string>Enable</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spin_distance">
+        <property name="geometry">
+         <rect>
+          <x>830</x>
+          <y>352</y>
+          <width>70</width>
+          <height>70</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>70</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QSpinBox {
     /* Estilo para el QSpinBox cuando es solo lectura */
     background-color: #149c44;
     border: 2px solid #265c4d;
@@ -1948,59 +1884,166 @@ QPushButton:pressed {
     font-weight: bold;
     text-align: center;
 }</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-             <property name="buttonSymbols">
-              <enum>QAbstractSpinBox::NoButtons</enum>
-             </property>
-             <property name="minimum">
-              <number>0</number>
-             </property>
-             <property name="maximum">
-              <number>20</number>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_dist">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-             <bold>true</bold>
-             <underline>true</underline>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: #14342c;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#14342c;&quot;&gt;Deshabilitada&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::NoButtons</enum>
+        </property>
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>20</number>
+        </property>
        </widget>
+       <widget class="QLabel" name="label_KP_steering">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>330</y>
+          <width>51</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; color:#14342c;&quot;&gt;KP&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="line_kp_steering">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>356</y>
+          <width>91</width>
+          <height>37</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_KD_steering">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>330</y>
+          <width>41</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; color:#14342c;&quot;&gt;KD&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="line_kd_steering">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>356</y>
+          <width>91</width>
+          <height>37</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_KI_steering">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>330</y>
+          <width>31</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; color:#14342c;&quot;&gt;KI&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="line_ki_steering">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>356</y>
+          <width>91</width>
+          <height>37</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+        </property>
+       </widget>
+       <zorder>label_dist</zorder>
+       <zorder>but_enable_dist</zorder>
+       <zorder>spin_distance</zorder>
+       <zorder>layoutWidget</zorder>
+       <zorder>layoutWidget</zorder>
        <zorder>frame</zorder>
        <zorder>horizontalLayoutWidget_3</zorder>
        <zorder>send_sens</zorder>
        <zorder>pushButton_PID_Steering</zorder>
        <zorder>label_12</zorder>
        <zorder>label_13</zorder>
-       <zorder>horizontalLayoutWidget_4</zorder>
        <zorder>SLID_distance</zorder>
        <zorder>label_14</zorder>
        <zorder>layoutWidget</zorder>
-       <zorder>label_dist</zorder>
       </widget>
      </widget>
      <widget class="QPushButton" name="back_but_CONTROL">
@@ -2041,13 +2084,13 @@ QPushButton:pressed {
      </widget>
     </widget>
     <widget class="QWidget" name="PRINCIPAL">
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>-1</x>
-        <y>33</y>
+        <y>23</y>
         <width>1061</width>
-        <height>461</height>
+        <height>471</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -2241,7 +2284,446 @@ QPushButton:pressed {
      <widget class="QPushButton" name="back_but_ESTACION">
       <property name="geometry">
        <rect>
-        <x>970</x>
+        <x>1004</x>
+        <y>24</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+		
+	
+	
+	background-color: rgb(255, 0, 0);
+	   color: rgb(0, 0, 0);   
+       border: 2px solid rgb(64, 64, 64);
+       border-radius: 5px;
+    }
+
+    QPushButton:pressed {
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(122, 0, 0);
+    }</string>
+      </property>
+      <property name="text">
+       <string>X</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="but_EST_1">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>220</y>
+        <width>521</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+      </property>
+      <property name="text">
+       <string notr="true">ESTACION 1</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="but_EST_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>300</y>
+        <width>521</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+      </property>
+      <property name="text">
+       <string notr="true">ESTACION 2</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="but_EST_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>380</y>
+        <width>521</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+      </property>
+      <property name="text">
+       <string notr="true">ESTACION 3</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="but_EST_4">
+      <property name="geometry">
+       <rect>
+        <x>536</x>
+        <y>220</y>
+        <width>521</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+      </property>
+      <property name="text">
+       <string notr="true">ESTACION 4</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="but_EST_5">
+      <property name="geometry">
+       <rect>
+        <x>536</x>
+        <y>300</y>
+        <width>521</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+      </property>
+      <property name="text">
+       <string notr="true">ESTACION 5</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="but_EST_6">
+      <property name="geometry">
+       <rect>
+        <x>536</x>
+        <y>380</y>
+        <width>521</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+      </property>
+      <property name="text">
+       <string notr="true">ESTACION 6</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="but_EST_7">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>460</y>
+        <width>1056</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+      </property>
+      <property name="text">
+       <string notr="true">ESTACION 7</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_PRINC_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>20</y>
+        <width>1059</width>
+        <height>191</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+    color: #14342c;
+    font-weight: bold;
+	border: 5px solid;
+	border-radius: 10px;
+	border-color:  #1c9c4c;
+	background-color:  white;
+}</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:26pt; color:#14342c;&quot;&gt;SELECCIONE ESTACIÓN DE DESTINO&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <zorder>but_EST_1</zorder>
+     <zorder>but_EST_2</zorder>
+     <zorder>but_EST_3</zorder>
+     <zorder>but_EST_4</zorder>
+     <zorder>but_EST_5</zorder>
+     <zorder>but_EST_6</zorder>
+     <zorder>but_EST_7</zorder>
+     <zorder>label_PRINC_2</zorder>
+     <zorder>back_but_ESTACION</zorder>
+    </widget>
+    <widget class="QWidget" name="VIAJE">
+     <widget class="QPushButton" name="back_but_viaje">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>60</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+		
+	
+	
+	background-color: rgb(255, 0, 0);
+	   color: rgb(0, 0, 0);   
+       border: 2px solid rgb(64, 64, 64);
+       border-radius: 5px;
+    }
+
+    QPushButton:pressed {
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(122, 0, 0);
+    }</string>
+      </property>
+      <property name="text">
+       <string>X</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_VIAJE">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>120</y>
+        <width>1059</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+    color: #14342c;
+    font-weight: bold;
+	border: 5px solid;
+	border-radius: 10px;
+	border-color:  #1c9c4c;
+	background-color:  white;
+}</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="back_but_viaje_2">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
         <y>60</y>
         <width>51</width>
         <height>51</height>
@@ -2275,7 +2757,6 @@ QPushButton:pressed {
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="VIAJE"/>
     <widget class="QWidget" name="LLEGADA"/>
     <widget class="QWidget" name="LOGIN">
      <widget class="QPushButton" name="back_but_LOGIN">

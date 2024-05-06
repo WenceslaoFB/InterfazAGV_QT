@@ -132,11 +132,30 @@ private slots:
 
     void on_back_but_ESTACION_released();
 
+    void on_but_EST_1_released();
+
+    void on_but_EST_2_released();
+
+    void on_but_EST_3_released();
+
+    void on_but_EST_4_released();
+
+    void on_but_EST_5_released();
+
+    void on_but_EST_6_released();
+
+    void on_but_EST_7_released();
+
+    void on_back_but_viaje_released();
+
+    void on_back_but_viaje_2_released();
+
 private:
     Ui::MainWindow *ui;
 
     QSerialPort *serial;
     QTimer *timerUSB;
+
     void OnQSerialPort1Rx();
     void conectarMicro();
     void verificarYConectarUSB();
@@ -144,7 +163,7 @@ private:
     void EnviarComando(uint8_t length, uint8_t cmd, uint8_t payloadSEND[]);
 
     uint8_t TX[256], payloadCAN[256],RX[256],indiceRX_r=0,indiceRX_t=0, sensorDats[9];
-    uint8_t payloadCANs[9], INV_1 = 0, Dist_enable = 0;
+    uint8_t payloadCANs[9], INV_1 = 0, Dist_enable = 0,  destino = 0;
     float vel_aux = 0, vel_slid = 0, pos_aux=0;
 
     _sWork pos_cmd, pos_ing, velocidad_cmd, distance_sensor,KP_SteeringMotor,KD_SteeringMotor,KI_SteeringMotor;

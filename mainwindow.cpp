@@ -740,3 +740,71 @@ void MainWindow::on_back_but_ESTACION_released()
     ui->stackedWidget->setCurrentIndex(PRINCIPAL);
 }
 
+
+void MainWindow::on_but_EST_1_released()
+{
+    ui->stackedWidget->setCurrentIndex(VIAJANDO);
+    destino = 1;
+    ui->label_VIAJE->setText("VIAJANDO A ESTACION 1");
+}
+
+
+void MainWindow::on_but_EST_2_released()
+{
+    ui->stackedWidget->setCurrentIndex(VIAJANDO);
+    destino = 2;
+    ui->label_VIAJE->setText("VIAJANDO A ESTACION 2");
+}
+
+
+void MainWindow::on_but_EST_3_released()
+{
+    ui->stackedWidget->setCurrentIndex(VIAJANDO);
+    destino = 3;
+    ui->label_VIAJE->setText("VIAJANDO A ESTACION 3");
+}
+
+
+void MainWindow::on_but_EST_4_released()
+{
+    ui->stackedWidget->setCurrentIndex(VIAJANDO);
+    destino = 4;
+    ui->label_VIAJE->setText("VIAJANDO A ESTACION 4");
+}
+
+
+void MainWindow::on_but_EST_5_released()
+{
+    ui->stackedWidget->setCurrentIndex(VIAJANDO);
+    destino = 5;
+    ui->label_VIAJE->setText("VIAJANDO A ESTACION 5");
+}
+
+
+void MainWindow::on_but_EST_6_released()
+{
+    ui->stackedWidget->setCurrentIndex(VIAJANDO);
+    destino = 6;
+    ui->label_VIAJE->setText("VIAJANDO A ESTACION 6");
+}
+
+
+void MainWindow::on_but_EST_7_released()
+{
+    ui->stackedWidget->setCurrentIndex(VIAJANDO);
+    destino = 7;
+    ui->label_VIAJE->setText("VIAJANDO A ESTACION 7");
+}
+
+
+void MainWindow::on_back_but_viaje_released()
+{
+    ui->stackedWidget->setCurrentIndex(SELECCION);
+}
+
+
+void MainWindow::on_back_but_viaje_2_released()
+{
+   ui->stackedWidget->setCurrentIndex(LLEGADA);
+}
+
