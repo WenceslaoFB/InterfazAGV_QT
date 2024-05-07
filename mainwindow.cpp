@@ -105,7 +105,7 @@ void MainWindow::OnQSerialPort1Rx(){
         Decode();
     }
 
-    ui->LINE_POS->setText(strhex);
+    //ui->LINE_POS->setText(strhex);
 }
 
 //void MainWindow::inicio(){
@@ -241,6 +241,18 @@ void MainWindow::RecibirDatos(uint8_t head){
         //INVERTIR2_RECIVE_CMD = 1;
         break;
     case MOTOR_SPEED_DATA1_CMD:
+        RealSpeedVEL.u8[0] = ringRx.buf[head++];
+        RealSpeedVEL.u8[1] = ringRx.buf[head++];
+        RealSpeedVEL.u8[2] = ringRx.buf[head++];
+        RealSpeedVEL.u8[3] = ringRx.buf[head++];
+        StatusWordVEL.u8[0] = ringRx.buf[head++];
+        StatusWordVEL.u8[1] = ringRx.buf[head++];
+        RealCurrentVEL.u8[0] = ringRx.buf[head++];
+        RealCurrentVEL.u8[1] = ringRx.buf[head++];
+        ui->label_aux->setText("andaa");
+        ui->label_SPEED->setNum((RealSpeedVEL.i32*3)/8192.0);
+        ui->label_STATUSW->setNum((int32_t)StatusWordVEL.u16[0]);
+        ui->label_CORR->setNum((int32_t)RealCurrentVEL.i16[0]);
         break;
     case MOTOR_DIR_DATA1_CMD:
         RealPositionDIR.u8[0] = ringRx.buf[head++];
@@ -252,7 +264,7 @@ void MainWindow::RecibirDatos(uint8_t head){
         RealCurrentDIR.u8[0] = ringRx.buf[head++];
         RealCurrentDIR.u8[1] = ringRx.buf[head++];
         ui->label_aux->setText("andaa");
-        ui->label_POS->setNum(RealPositionDIR.i32);
+        ui->label_POS->setNum((RealPositionDIR.i32/1000)*5.49316);
         ui->label_STATUSW_pos->setNum((int32_t)StatusWordDIR.u16[0]);
         ui->label_CORR_pos->setNum((int32_t)RealCurrentDIR.i16[0]);
         break;

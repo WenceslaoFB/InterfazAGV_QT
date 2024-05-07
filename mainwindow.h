@@ -160,6 +160,8 @@ private:
     uint8_t payloadCANs[9], INV_1 = 0, Dist_enable = 0,  destino = 0;
     float vel_aux = 0, vel_slid = 0, pos_aux=0;
 
+    int velocidadReal = 0;
+
     _sWork pos_cmd, pos_ing, velocidad_cmd, distance_sensor,KP_SteeringMotor,KD_SteeringMotor,KI_SteeringMotor;
     _sWork RealSpeedVEL,StatusWordVEL,RealCurrentVEL; //Variables para almacenar datos enviados del motor velocidad por TPDO1
     _sWork RealPositionDIR,StatusWordDIR,RealCurrentDIR; //Variables para almacenar datos enviados del motor direccion por TPDO1
