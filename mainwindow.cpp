@@ -39,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
         serial->setDataTerminalReady(true);
         connect(serial, &QSerialPort::readyRead, this, &MainWindow::OnQSerialPort1Rx);*/
     conectarMicro();
-
+    //connect(serial, &QSerialPort::readyRead, this, &MainWindow::OnQSerialPort1Rx);
     // inicio();
 }
 
@@ -59,7 +59,8 @@ void MainWindow::conectarMicro(){
             if (serial->open(QSerialPort::ReadWrite)) {
                 serial->setDataTerminalReady(true);
                 qDebug() << "Conectado con éxito a" << info.portName();
-                                                       break; // Salir del bucle una vez conectado
+                                                       connect(serial, &QSerialPort::readyRead, this, &MainWindow::OnQSerialPort1Rx);
+                break; // Salir del bucle una vez conectado
             } else {
                 qDebug() << "Error al abrir el puerto:" << serial->errorString();
             }
@@ -101,10 +102,10 @@ void MainWindow::OnQSerialPort1Rx(){
     {
         ringRx.buf[ringRx.iW] = data[i];
         ringRx.iW++;
-        //Decode();
+        Decode();
     }
 
-    //ui->lineEdit->setText(strhex);
+    ui->LINE_POS->setText(strhex);
 }
 
 //void MainWindow::inicio(){
@@ -123,10 +124,13 @@ void MainWindow::Decode(){
     switch (ringRx.header)
     {
     case 0:
-        if (ringRx.buf[ringRx.iR] == 'U')
+        if (ringRx.buf[ringRx.iR] == 'U'){
             ringRx.header++;
+            ringRx.timeout = 50;
+        }
         else{
             ringRx.header = 0;
+            ringRx.timeout = 0;
             //ringRx.iR--;
         }
         break;
@@ -135,7 +139,7 @@ void MainWindow::Decode(){
             ringRx.header++;
         else{
             ringRx.header = 0;
-            //ringRx.iR--;
+            ringRx.iR--;
         }
         break;
     case 2:
@@ -143,7 +147,7 @@ void MainWindow::Decode(){
             ringRx.header++;
         else{
             ringRx.header = 0;
-            //ringRx.iR--;
+            ringRx.iR--;
         }
         break;
     case 3:
@@ -153,41 +157,50 @@ void MainWindow::Decode(){
         }
         else{
             ringRx.header = 0;
-            //ringRx.iR--;
+            ringRx.iR--;
         }
         break;
     case 4:
         ringRx.nBytes = ringRx.buf[ringRx.iR];
+        //auxlenght = ringRx.nBytes;
         ringRx.header++;
         break;
     case 5:
-        if (ringRx.buf[ringRx.iR] == 0x00)
-            ringRx.header++;
-        else{
-            ringRx.header = 0;
-            //ringRx.iR--;
-        }
+        ringRx.header++;
+
+        //            if (ringRx.buf[ringRx.iR] == 0x00)
+        //                ringRx.header++;
+        //            else{
+        //                ringRx.header = 0;
+        //                //ringRx.iR--;
+        //            }
+        //
         break;
     case 6:
         if (ringRx.buf[ringRx.iR] == ':')
         {
-            ringRx.cks= 'U'^'N'^'E'^'R'^ringRx.nBytes^0x00^':';
+            ringRx.cks = 'U'^'N'^'E'^'R'^ringRx.nBytes^0x00^':';
             ringRx.header++;
             ringRx.iData = ringRx.iR+1;
             //LED_RED_TOGGLE();
         }
         else{
             ringRx.header = 0;
-            //ringRx.iR--;
+            ringRx.iR--;
         }
         break;
 
     case 7:
-        UpdateChecksum();
-        CheckBytesLeft();
-        if(ringRx.nBytes == 0)
-        {
-            CheckChecksumAndReceiveData();
+        if(ringRx.nBytes>1){
+            ringRx.cks^=ringRx.buf[ringRx.iR];
+        }
+        ringRx.nBytes--;
+        if(ringRx.nBytes==0){
+            ringRx.header=0;
+            ringRx.timeout = 0;
+            if(ringRx.cks==ringRx.buf[ringRx.iR]){
+                RecibirDatos(ringRx.iData);
+            }
         }
         break;
     default:
@@ -197,68 +210,60 @@ void MainWindow::Decode(){
     ringRx.iR++;
 }
 
-void MainWindow::UpdateChecksum()
-{
-    if(ringRx.nBytes > 1)
-    {
-        ringRx.cks ^= ringRx.buf[ringRx.iR];
-    }
-}
-
-void MainWindow::CheckBytesLeft()
-{
-    ringRx.nBytes--;
-    if(ringRx.nBytes == 0)
-    {
-        ringRx.header = 0;
-    }
-}
-
-void MainWindow::CheckChecksumAndReceiveData()
-{
-    if(ringRx.cks == ringRx.buf[ringRx.iR])
-    {
-        RecibirDatos(ringRx.iData);
-    }
-}
-
 void MainWindow::RecibirDatos(uint8_t head){
-    static uint8_t cont=0;
-    cont++;
     switch (ringRx.buf[head++]){
-        case MOTOR_DIR_DATA1_CMD:
-        RealPositionDIR.i8[0] = ringRx.buf[head++];
-        RealPositionDIR.i8[1] = ringRx.buf[head++];
-        RealPositionDIR.i8[2] = ringRx.buf[head++];
-        RealPositionDIR.i8[3] = ringRx.buf[head++];
-        StatusWordDIR.u16[0] = ringRx.buf[head++];
-        StatusWordDIR.u16[1] = ringRx.buf[head++];
-        RealCurrentDIR.i16[0] = ringRx.buf[head++];
-        RealCurrentDIR.i16[1] = ringRx.buf[head++];
+    case 0xD2:
+        //algo
         break;
-        case MOTOR_DIR_DATA2_CMD:
-        //ta vacio
+    case ENABLE_MOTOR_CMD:
         break;
-        case MOTOR_SPEED_DATA1_CMD:
-        RealSpeedVEL.i8[0] = ringRx.buf[head++];
-        RealSpeedVEL.i8[1] = ringRx.buf[head++];
-        RealSpeedVEL.i8[2] = ringRx.buf[head++];
-        RealSpeedVEL.i8[3] = ringRx.buf[head++];
-        StatusWordVEL.u16[0] = ringRx.buf[head++];
-        StatusWordVEL.u16[1] = ringRx.buf[head++];
-        RealCurrentVEL.i16[0] = ringRx.buf[head++];
-        RealCurrentVEL.i16[1] = ringRx.buf[head++];
+    case DISABLE_MOTOR_CMD:
         break;
-        case MOTOR_SPEED_DATA2_CMD:
-        //ta vacio
+    case SPEED_MODE_CMD:
+        //SPEED_MODE_REC_CMD = 1;
         break;
-        case FAULT_CMD:
-        flagFaults.byte = ringRx.buf[head++];
+    case POSITION_MODE_CMD:
+        //POSITION_MODE_REC_CMD = 1;
+        break;
+    case READY_POSI_CMD:
+        //READY_POS_REC_CMD = 1;
+        break;
+    case SPEED_MOTOR_CMD:
+        //TARGET_SPEED_REC_CMD = 1;
+        break;
+    case POS_MOTOR_CMD:
+        //TARGET_POS_REC_CMD = 1;
+        break;
+    case INVERTIR_1_CMD:
+        //INVERTIR1_RECIVE_CMD = 1;
+        break;
+    case INVERTIR_2_CMD:
+        //INVERTIR2_RECIVE_CMD = 1;
+        break;
+    case MOTOR_SPEED_DATA1_CMD:
+        break;
+    case MOTOR_DIR_DATA1_CMD:
+        RealPositionDIR.u8[0] = ringRx.buf[head++];
+        RealPositionDIR.u8[1] = ringRx.buf[head++];
+        RealPositionDIR.u8[2] = ringRx.buf[head++];
+        RealPositionDIR.u8[3] = ringRx.buf[head++];
+        StatusWordDIR.u8[0] = ringRx.buf[head++];
+        StatusWordDIR.u8[1] = ringRx.buf[head++];
+        RealCurrentDIR.u8[0] = ringRx.buf[head++];
+        RealCurrentDIR.u8[1] = ringRx.buf[head++];
+        ui->label_aux->setText("andaa");
+        ui->label_POS->setNum(RealPositionDIR.i32);
+        ui->label_STATUSW_pos->setNum((int32_t)StatusWordDIR.u16[0]);
+        ui->label_CORR_pos->setNum((int32_t)RealCurrentDIR.i16[0]);
+        break;
+    case 0xCF:
         break;
     default:
+        //LED_RED_TOGGLE();
         break;
     }
 }
+
 
 void MainWindow::crearArrayCMD(uint8_t cmd, uint8_t id){
 

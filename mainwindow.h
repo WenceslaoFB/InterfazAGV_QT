@@ -112,12 +112,6 @@ private slots:
 
     void Decode();
 
-    void UpdateChecksum();
-
-    void CheckBytesLeft();
-
-    void CheckChecksumAndReceiveData();
-
     void RecibirDatos(uint8_t head);
 
     void on_but_go_ESTACION_released();
@@ -218,5 +212,28 @@ private:
 #define ssssss                              flagFaults.bit.b5
 #define sssssss                             flagFaults.bit.b6
 #define ssssssss                            flagFaults.bit.b7
+
+    //defines de placa
+#define ENABLE_MOTOR_CMD 						0x01 //COMANDO ENABLE MOTOR
+#define DISABLE_MOTOR_CMD 						0x02 // COMANDO DISABLE MOTOR
+#define INVERTIR_1_CMD 							0x03
+#define INVERTIR_2_CMD 							0x04
+#define READY_POSI_CMD 							0x05
+#define SPEED_MOTOR_CMD 						0x06
+#define POS_MOTOR_CMD 							0x07
+#define POSITION_MODE_CMD 						0xA1
+#define SPEED_MODE_CMD 							0xA3
+//#define MANUAL_CMD 								0xA5
+#define ACC_SPEED_CMD 							0xA6
+#define DEC_SPEED_CMD 							0xA7
+#define SPEED_POS_CMD 							0xA8
+#define FAULT_CMD								0xF0
+#define MOTOR_SPEED_DATA1_CMD					0xB0
+#define MOTOR_SPEED_DATA2_CMD					0xB1
+#define MOTOR_DIR_DATA1_CMD						0xB2
+#define MOTOR_DIR_DATA2_CMD						0xB3
+//#define FAULT_CMD								0xB4
+#define PID_PARAMETERS_CMD						0xC0
+#define MAG_SENSOR_SIM_CMD						0xC1
 };
 #endif // MAINWINDOW_H

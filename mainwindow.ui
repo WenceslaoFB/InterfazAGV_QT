@@ -73,7 +73,7 @@ QTabBar::tab:hover {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -280,7 +280,7 @@ QPushButton:pressed {
         <property name="styleSheet">
          <string notr="true">    background-color: white;
     border: 2px solid #265c4d;
-	color: white;
+	color: black;
     border-radius: 8px;
     padding: 5px 10px;
 	font-weight: bold;</string>
@@ -2030,11 +2030,15 @@ QPushButton:pressed {
 	font-weight: bold;</string>
         </property>
        </widget>
+       <zorder>label_KP_steering</zorder>
+       <zorder>line_kp_steering</zorder>
+       <zorder>label_KD_steering</zorder>
+       <zorder>line_kd_steering</zorder>
+       <zorder>label_KI_steering</zorder>
+       <zorder>line_ki_steering</zorder>
        <zorder>label_dist</zorder>
        <zorder>but_enable_dist</zorder>
        <zorder>spin_distance</zorder>
-       <zorder>layoutWidget</zorder>
-       <zorder>layoutWidget</zorder>
        <zorder>frame</zorder>
        <zorder>horizontalLayoutWidget_3</zorder>
        <zorder>send_sens</zorder>
@@ -2043,7 +2047,6 @@ QPushButton:pressed {
        <zorder>label_13</zorder>
        <zorder>SLID_distance</zorder>
        <zorder>label_14</zorder>
-       <zorder>layoutWidget</zorder>
       </widget>
      </widget>
      <widget class="QPushButton" name="back_but_CONTROL">
@@ -2800,8 +2803,8 @@ QPushButton:pressed {
      <widget class="QPushButton" name="back_but_DATOS">
       <property name="geometry">
        <rect>
-        <x>830</x>
-        <y>220</y>
+        <x>1000</x>
+        <y>20</y>
         <width>51</width>
         <height>51</height>
        </rect>
@@ -2831,6 +2834,188 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>X</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_aux">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>30</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>15</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Funciona?</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>140</y>
+        <width>121</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Velocidad real</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_SPEED">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>160</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>230</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Stattusword</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_STATUSW">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>250</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>320</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Corriente</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_CORR">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>340</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>130</y>
+        <width>121</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Posicion real</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>220</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Stattusword</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_CORR_pos">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>330</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_POS">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>150</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>310</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Corriente</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_STATUSW_pos">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>240</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
       </property>
      </widget>
     </widget>
