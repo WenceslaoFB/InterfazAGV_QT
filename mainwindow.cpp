@@ -280,7 +280,7 @@ void MainWindow::RecibirDatos(uint8_t head){
 void MainWindow::crearArrayCMD(uint8_t cmd, uint8_t id){
 
     switch(cmd){ //la data se guarda en el mensaje poniendo el byte menos sig primero
-    case 0xAF:
+    case 0xAF://datos de simulacion de sensor distancia
         payloadCAN[0] = id;
         payloadCAN[1] = 0x00;
         payloadCAN[2] = 0x00;
@@ -291,7 +291,7 @@ void MainWindow::crearArrayCMD(uint8_t cmd, uint8_t id){
         payloadCAN[7] = distance_sensor.u8[2];
         payloadCAN[8] = distance_sensor.u8[3];
         break;
-    case 0xBF:
+    case 0xBF://envia datos de simulacion de sensor mag
 
         payloadCAN[7] = 0;
         payloadCAN[8] = 0;
@@ -312,7 +312,7 @@ void MainWindow::crearArrayCMD(uint8_t cmd, uint8_t id){
         payloadCAN[8] |= ((uint8_t)ui->sens6->isChecked()<<2);
         payloadCAN[8] |= ((uint8_t)ui->sens7->isChecked()<<3);
         break;
-    case 0xCF:
+    case 0xCF://Parametros PID sensor mag
         payloadCAN[0] = id;
         payloadCAN[1] = KP_SteeringMotor.u8[0];
         payloadCAN[2] = KP_SteeringMotor.u8[1];
@@ -422,6 +422,17 @@ void MainWindow::crearArrayCMD(uint8_t cmd, uint8_t id){
         payloadCAN[7] = 0x00;
         payloadCAN[8] = 0x00;
         break;
+    case CHANGE_MODE_CMD://
+        payloadCAN[0] = id;
+        payloadCAN[1] = 0x00;
+        payloadCAN[2] = 0x00;
+        payloadCAN[3] = 0x00;
+        payloadCAN[4] = 0x00;
+        payloadCAN[5] = 0x00;
+        payloadCAN[6] = 0x00;
+        payloadCAN[7] = 0x00;
+        payloadCAN[8] = 0x00;
+        break;
     default:
         break;
     }
@@ -457,9 +468,6 @@ void MainWindow::EnviarComando(uint8_t length, uint8_t cmd, uint8_t payloadSEND[
     }
     TX[TX[4]+6] = cks;
 
-
-
-
     if(serial->isOpen()){
         serial->write((char*)TX, 7 + TX[4]);
     }
@@ -468,8 +476,8 @@ void MainWindow::EnviarComando(uint8_t length, uint8_t cmd, uint8_t payloadSEND[
 
 void MainWindow::on_EN_DIR_pressed()
 {
-    crearArrayCMD(ENABLE,ID_M_DIREC);
-    EnviarComando(0x0B, ENABLE, payloadCAN);
+    crearArrayCMD(READY_POS,ID_M_DIREC);
+    EnviarComando(0x0B, READY_POS, payloadCAN);
 }
 
 
@@ -823,5 +831,12 @@ void MainWindow::on_back_but_viaje_released()
 void MainWindow::on_back_but_viaje_2_released()
 {
    ui->stackedWidget->setCurrentIndex(LLEGADA);
+}
+
+
+void MainWindow::on_but_cambio_mode_released()
+{
+   crearArrayCMD(CHANGE_MODE_CMD, ID_M_VEL);
+   EnviarComando(0x0B, CHANGE_MODE_CMD, payloadCAN);
 }
 

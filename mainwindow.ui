@@ -73,7 +73,7 @@ QTabBar::tab:hover {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -327,6 +327,49 @@ QPushButton:pressed {
         </property>
         <property name="text">
          <string>Enviar</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="but_cambio_mode">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>415</y>
+          <width>181</width>
+          <height>70</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+        </property>
+        <property name="text">
+         <string>Correciones</string>
         </property>
        </widget>
       </widget>
@@ -2760,7 +2803,44 @@ QPushButton:pressed {
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="LLEGADA"/>
+    <widget class="QWidget" name="LLEGADA">
+     <widget class="QPushButton" name="back_but_LLEGADA">
+      <property name="geometry">
+       <rect>
+        <x>960</x>
+        <y>50</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+		
+	
+	
+	background-color: rgb(255, 0, 0);
+	   color: rgb(0, 0, 0);   
+       border: 2px solid rgb(64, 64, 64);
+       border-radius: 5px;
+    }
+
+    QPushButton:pressed {
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(122, 0, 0);
+    }</string>
+      </property>
+      <property name="text">
+       <string>X</string>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="LOGIN">
      <widget class="QPushButton" name="back_but_LOGIN">
       <property name="geometry">

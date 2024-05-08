@@ -144,6 +144,8 @@ private slots:
 
     void on_back_but_viaje_2_released();
 
+    void on_but_cambio_mode_released();
+
 private:
     Ui::MainWindow *ui;
 
@@ -186,6 +188,7 @@ private:
 
     //Manual
 #define MANUAL_CMD                          0xD7
+#define CHANGE_MODE_CMD                     0xD8
 
 //Defines para pantallas
     const int PRINCIPAL = 1;
