@@ -871,7 +871,7 @@ void MainWindow::on_BUT_REG_released()
    QByteArray hashedPassword = QCryptographicHash::hash(passwordData, QCryptographicHash::Sha256);
 
    // Abre el archivo de texto que contiene los usuarios
-   QFile file("user_data.txt");
+   QFile file("C:/Users/wen_c/Documents/Interfaz_AGV_2/user_data.txt");
    if (!file.exists()) {
         // Si el archivo no existe, crea un nuevo archivo
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -901,8 +901,8 @@ void MainWindow::on_BUT_REG_released()
 
 void MainWindow::on_BUT_LOG_released()
 {
-   QString USER = ui->LINE_REG_USER->text();
-   QString PASSWORD = ui->LINE_REG_CONT->text();
+   QString USER = ui->LINE_LOG_USER->text();
+   QString PASSWORD = ui->LINE_LOG_CONT->text();
    QString role;
 
    if (USER.isEmpty() || PASSWORD.isEmpty()) {
@@ -915,7 +915,7 @@ void MainWindow::on_BUT_LOG_released()
    QByteArray hashedPassword = QCryptographicHash::hash(passwordData, QCryptographicHash::Sha256);
 
    // Abre el archivo de texto que contiene los usuarios
-   QFile file("user_data.txt");
+   QFile file("C:/Users/wen_c/Documents/Interfaz_AGV_2/user_data.txt");
    if (!file.exists()) {
         // Si el archivo no existe, tira error
             QMessageBox::critical(this, "Error", "No existe el archivo de datos de usuario");
@@ -944,12 +944,11 @@ void MainWindow::on_BUT_LOG_released()
    file.close();
 
    if (loginSuccessful) {
-            QMessageBox::warning(this, "Login", "Login exitoso");
-            User *user = new User(USER, role); // Asume que tienes el rol del usuario de alguna manera
+            QMessageBox::information(this, "Login", "Login exitoso");
+            user1 = new User(USER, role); // Asume que tienes el rol del usuario de alguna manera
    } else {
                 QMessageBox::warning(this, "Login", "Usuario o contraseña incorrecto");
    }
-
 }
 
 bool MainWindow::checkPermission(const QString &action) {

@@ -3261,7 +3261,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>160</x>
-        <y>240</y>
+        <y>245</y>
         <width>191</width>
         <height>41</height>
        </rect>
@@ -3274,7 +3274,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>160</x>
-        <y>280</y>
+        <y>285</y>
         <width>251</width>
         <height>61</height>
        </rect>
@@ -3290,7 +3290,7 @@ QPushButton:pressed {
     /* Estilo inicial del ComboBox */
    background-color: white;
     border: 2px solid #265c4d;
-	color: black;
+	color:  #14342c;
     border-radius: 8px;
     padding: 5px 10px;
 	font-weight: bold;
