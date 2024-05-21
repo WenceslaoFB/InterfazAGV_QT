@@ -8,8 +8,11 @@
 #include <QtSerialPort/QSerialPortInfo>
 #include <QString>
 #include <QByteArray>
-//#include <QSerialPortInfo>
 #include <QDebug>
+#include <QFile>
+#include <QTextStream>
+#include <QCryptographicHash>
+#include "user.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -840,3 +843,132 @@ void MainWindow::on_but_cambio_mode_released()
    EnviarComando(0x0B, CHANGE_MODE_CMD, payloadCAN);
 }
 
+
+
+
+void MainWindow::on_back_but_LLEGADA_released()
+{
+   ui->stackedWidget->setCurrentIndex(VIAJANDO);
+   destino = 0;
+   ui->label_VIAJE->setText("VIAJANDO A ESTACION ORIGEN");
+}
+
+
+void MainWindow::on_BUT_REG_released()
+{
+
+   QString USER = ui->LINE_REG_USER->text();
+   QString PASSWORD = ui->LINE_REG_CONT->text();
+   QString role = ui->comboBox_rol->currentText();
+
+   if (USER.isEmpty() || PASSWORD.isEmpty()) {
+        QMessageBox::warning(this, "Registro", "El nombre de usuario y la contraseña no pueden estar vacíos");
+        return;
+   }
+
+   // Genera el hash de la contraseña ingresada
+   QByteArray passwordData = PASSWORD.toUtf8();
+   QByteArray hashedPassword = QCryptographicHash::hash(passwordData, QCryptographicHash::Sha256);
+
+   // Abre el archivo de texto que contiene los usuarios
+   QFile file("user_data.txt");
+   if (!file.exists()) {
+        // Si el archivo no existe, crea un nuevo archivo
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            QMessageBox::critical(this, "Error", "No se pudo crear el archivo de datos de usuario");
+            return;
+        }
+        file.close();
+   }
+
+   if (!file.open(QIODevice::Append | QIODevice::Text)) {
+        QMessageBox::critical(this, "Error", "No se pudo abrir el archivo de datos de usuario para añadir un nuevo usuario");
+            return;
+   }
+
+   // out << username: Escribe el nombre de usuario en el archivo de texto. out es un objeto QTextStream que se ha vinculado al archivo de texto.
+   QTextStream out(&file);
+   out << USER << " " << hashedPassword.toHex() << " " << role << "\n";
+
+   file.close();
+
+   QMessageBox::information(this, "Registro", "Usuario registrado exitosamente");
+
+   ui->LINE_REG_USER->clear();
+   ui->LINE_REG_CONT->clear();
+}
+
+
+void MainWindow::on_BUT_LOG_released()
+{
+   QString USER = ui->LINE_REG_USER->text();
+   QString PASSWORD = ui->LINE_REG_CONT->text();
+   QString role;
+
+   if (USER.isEmpty() || PASSWORD.isEmpty()) {
+        QMessageBox::warning(this, "Registro", "El nombre de usuario y la contraseña no pueden estar vacíos");
+        return;
+   }
+
+   // Genera el hash de la contraseña ingresada
+   QByteArray passwordData = PASSWORD.toUtf8();
+   QByteArray hashedPassword = QCryptographicHash::hash(passwordData, QCryptographicHash::Sha256);
+
+   // Abre el archivo de texto que contiene los usuarios
+   QFile file("user_data.txt");
+   if (!file.exists()) {
+        // Si el archivo no existe, tira error
+            QMessageBox::critical(this, "Error", "No existe el archivo de datos de usuario");
+        file.close();
+   }
+
+   if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QMessageBox::critical(this, "Error", "No se pudo abrir el archivo de datos de usuario");
+            return;
+   }
+
+   QTextStream in(&file);
+   bool loginSuccessful = false;
+
+   while (!in.atEnd()) {
+            QString line = in.readLine();
+            QStringList fields = line.split(" ");
+            if (fields.size() < 3)
+            continue;
+            if (fields[0] == USER && QByteArray::fromHex(fields[1].toUtf8()) == hashedPassword ) {
+            loginSuccessful = true;
+            role = fields[2];
+            break;
+            }
+   }
+   file.close();
+
+   if (loginSuccessful) {
+            QMessageBox::warning(this, "Login", "Login exitoso");
+            User *user = new User(USER, role); // Asume que tienes el rol del usuario de alguna manera
+   } else {
+                QMessageBox::warning(this, "Login", "Usuario o contraseña incorrecto");
+   }
+
+}
+
+bool MainWindow::checkPermission(const QString &action) {
+
+   if (user1->getRole() == "Mantenimiento") {
+                if (action == "Ver Sensores") {
+            return true;
+                }
+                if(action == "Elegir Estacion"){
+            return true;
+                }
+                if(action == "Registrar Usuario"){
+            return true;
+                }
+   }
+   if (user1->getRole() == "Operario") {
+                if(action == "Elegir Estacion"){
+            return true;
+                }
+   }
+   return false;
+}

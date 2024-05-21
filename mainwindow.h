@@ -9,6 +9,7 @@
 #include <QMessageBox>
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
+#include "user.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -146,11 +147,23 @@ private slots:
 
     void on_but_cambio_mode_released();
 
+
+    void on_back_but_LLEGADA_released();
+
+    void on_BUT_REG_released();
+
+    void on_BUT_LOG_released();
+
+    bool checkPermission(const QString &action);
+
 private:
     Ui::MainWindow *ui;
 
     QSerialPort *serial;
     QTimer *timerUSB;
+
+    User *user1 = new User("user", "user");
+    User *usergenerico = new User("user", "user");
 
     void OnQSerialPort1Rx();
     void conectarMicro();
