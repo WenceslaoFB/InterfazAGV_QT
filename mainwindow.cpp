@@ -12,7 +12,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QCryptographicHash>
-#include "user.h"
+#include "User.h"
 #include "ultrasonicsensor.h"
 #include <QThread>
 #ifdef __linux__
