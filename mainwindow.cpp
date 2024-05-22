@@ -135,7 +135,7 @@ void MainWindow::OnQSerialPort1Rx(){
 
     //ui->LINE_POS->setText(strhex);
 }
-
+//i
 void MainWindow::updateDistance(double distance) {
     ui->label_dist_real->setText(QString::number(distance, 'f', 2) + " cm");
 }
