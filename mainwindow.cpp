@@ -13,6 +13,11 @@
 #include <QTextStream>
 #include <QCryptographicHash>
 #include "user.h"
+#include "ultrasonicsensor.h"
+#include <QThread>
+#ifdef __linux__
+#include <pigpio.h>
+#endif
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -43,12 +48,32 @@ MainWindow::MainWindow(QWidget *parent)
         connect(serial, &QSerialPort::readyRead, this, &MainWindow::OnQSerialPort1Rx);*/
     conectarMicro();
     //connect(serial, &QSerialPort::readyRead, this, &MainWindow::OnQSerialPort1Rx);
-    // inicio();
+
+    // Setup sensor
+    UltrasonicSensor *sensor = new UltrasonicSensor(18, 24); // Asegúrate de ajustar los pines
+
+    QThread *sensorThread = new QThread(this);
+    sensor->moveToThread(sensorThread);
+
+    connect(sensorThread, &QThread::finished, sensor, &QObject::deleteLater);
+    connect(this, &MainWindow::startMeasurement, sensor, &UltrasonicSensor::measureDistance);
+    //connect(sensor, &UltrasonicSensor::distanceMeasured, this, &MainWindow::updateDistanceLabel);
+    connect(sensor, &UltrasonicSensor::distanceMeasured, this, &MainWindow::updateDistance);
+
+    sensorThread->start();
+    emit startMeasurement(); // Puedes llamarlo en un temporizador si necesitas mediciones continuas
 }
-//we
+
 MainWindow::~MainWindow()
 {
     delete ui;
+
+    sensorThread->quit();
+    sensorThread->wait();
+    delete sensorThread; // sensor se borrará automáticamente debido a deleteLater
+    #ifdef __linux__
+        gpioTerminate(); // Limpieza de la biblioteca pigpio
+    #endif
 }
 
 void MainWindow::conectarMicro(){
@@ -111,14 +136,9 @@ void MainWindow::OnQSerialPort1Rx(){
     //ui->LINE_POS->setText(strhex);
 }
 
-//void MainWindow::inicio(){
-
-//    crearArrayCMD(POSITION_MODE,ID_M_DIREC);
-//    EnviarComando(0x0B, POSITION_MODE, payloadCAN);
-
-//    crearArrayCMD(VELOCITY_MODE,ID_M_VEL);
-//    EnviarComando(0x0B, VELOCITY_MODE, payloadCAN);
-//}
+void MainWindow::updateDistance(double distance) {
+    ui->label_dist_real->setText(QString::number(distance, 'f', 2) + " cm");
+}
 
 void MainWindow::Decode(){
     if(ringRx.iW == ringRx.iR)

@@ -10,6 +10,7 @@
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 #include "user.h"
+#include "ultrasonicsensor.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -68,6 +69,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+signals:
+    void startMeasurement();
+
+public slots: // Agrega esta sección
+    void updateDistance(double distance); // Asegúrate de que acepta un parámetro double
 
 private slots:
 
@@ -164,6 +170,9 @@ private:
 
     User *user1 = new User("user", "user");
     User *usergenerico = new User("user", "user");
+
+    UltrasonicSensor *sensor;
+    QThread* sensorThread;
 
     void OnQSerialPort1Rx();
     void conectarMicro();

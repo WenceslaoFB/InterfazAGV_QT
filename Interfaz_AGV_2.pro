@@ -10,11 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    ultrasonicsensor.cpp
 
 HEADERS += \
     User.h \
-    mainwindow.h
+    mainwindow.h \
+    ultrasonicsensor.h
 
 FORMS += \
     mainwindow.ui
