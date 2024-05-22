@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
     //connect(serial, &QSerialPort::readyRead, this, &MainWindow::OnQSerialPort1Rx);
     // inicio();
 }
-
+//se viene
 MainWindow::~MainWindow()
 {
     delete ui;
