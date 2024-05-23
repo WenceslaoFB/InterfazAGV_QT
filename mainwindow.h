@@ -9,7 +9,7 @@
 #include <QMessageBox>
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
-#include "user.h"
+#include "User.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
