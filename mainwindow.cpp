@@ -79,7 +79,7 @@ MainWindow::~MainWindow()
 void MainWindow::conectarMicro(){
     // Enumerar los puertos disponibles y buscar tu dispositivo específico
     foreach(const QSerialPortInfo &info, QSerialPortInfo::availablePorts()) {
-        if (((info.description().contains("USB Serial Device")) || (info.description().contains("Dispositivo serie USB"))) && (info.serialNumber() == "")) {
+        if (((info.description().contains("USB Serial Device")) || (info.description().contains("VCOM")) || (info.description().contains("Dispositivo serie USB"))) && (info.serialNumber() == "")) {
             serial->setPort(info);
             serial->setBaudRate(QSerialPort::Baud115200); // Configura según tu dispositivo
             // Configura otros parámetros si es necesario
