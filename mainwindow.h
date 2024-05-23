@@ -188,7 +188,8 @@ private:
 
     _sWork pos_cmd, pos_ing, velocidad_cmd, distance_sensor,KP_SteeringMotor,KD_SteeringMotor,KI_SteeringMotor;
     _sWork RealSpeedVEL,StatusWordVEL,RealCurrentVEL; //Variables para almacenar datos enviados del motor velocidad por TPDO1
-    _sWork RealPositionDIR,StatusWordDIR,RealCurrentDIR; //Variables para almacenar datos enviados del motor direccion por TPDO1
+    _sWork RealPositionDIR,StatusWordDIR,RealCurrentDIR;//Variables para almacenar datos enviados del motor direccion por TPDO1
+    _sWork RealDistance;
 
     volatile _sFlag flagFaults;
 
@@ -211,6 +212,8 @@ private:
     //Manual
 #define MANUAL_CMD                          0xD7
 #define CHANGE_MODE_CMD                     0xD8
+
+#define DISTANCE_SENSOR_CMD                 0xA9
 
 //Defines para pantallas
     const int PRINCIPAL = 1;
