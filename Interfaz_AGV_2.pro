@@ -26,13 +26,5 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-# Configuración especifica para sistemas Unix
-unix{
-# Encuentra la biblioteca pigpio
-    PIGPIO_LIB = SSsystem("pkg-config --libs pigpio")
-    !isEmpty(PIGPIO_LIB){
-        LIBS += SSPIGPIO_LIB
-    }else{
-        error("pigpio library not found")
-    }
-}
+INCLUDEPATH += /usr/include/
+LIBS += -lpigpio -lrt -lpthread

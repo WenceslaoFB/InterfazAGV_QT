@@ -27,7 +27,7 @@ UltrasonicSensor::UltrasonicSensor(int triggerPin, int echoPin, QObject *parent)
     // Configura un QTimer para llamar a measureDistance() cada 1000 milisegundos (1 segundo)
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &UltrasonicSensor::measureDistance);
-    timer->start(1000); // Comienza el temporizador para realizar mediciones periódicas
+    timer->start(250); // Comienza el temporizador para realizar mediciones periódicas
 }
 
 
