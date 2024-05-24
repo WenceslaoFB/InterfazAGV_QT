@@ -26,5 +26,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+unix{
 INCLUDEPATH += /usr/include/
 LIBS += -lpigpio -lrt -lpthread
+}
