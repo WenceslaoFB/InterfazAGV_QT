@@ -472,6 +472,17 @@ void MainWindow::crearArrayCMD(uint8_t cmd, uint8_t id){
         payloadCAN[7] = RealDistance.u8[2];
         payloadCAN[8] = RealDistance.u8[3];
         break;
+    case DESTINATIONSTATION_CMD:
+        payloadCAN[0] = id;
+        payloadCAN[1] = 0x00;
+        payloadCAN[2] = 0x00;
+        payloadCAN[3] = 0x00;
+        payloadCAN[4] = 0x00;
+        payloadCAN[5] = 0x00;
+        payloadCAN[6] = 0x00;
+        payloadCAN[7] = (uint8_t)'E';
+        payloadCAN[8] = destino+30;
+        break;
     default:
         break;
     }
@@ -810,6 +821,8 @@ void MainWindow::on_but_EST_1_released()
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
     destino = 1;
     ui->label_VIAJE->setText("VIAJANDO A ESTACION 1");
+    crearArrayCMD(DESTINATIONSTATION_CMD, 0);
+    EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
 }
 
 
@@ -818,6 +831,8 @@ void MainWindow::on_but_EST_2_released()
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
     destino = 2;
     ui->label_VIAJE->setText("VIAJANDO A ESTACION 2");
+    crearArrayCMD(DESTINATIONSTATION_CMD, 0);
+    EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
 }
 
 
@@ -826,6 +841,8 @@ void MainWindow::on_but_EST_3_released()
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
     destino = 3;
     ui->label_VIAJE->setText("VIAJANDO A ESTACION 3");
+    crearArrayCMD(DESTINATIONSTATION_CMD, 0);
+    EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
 }
 
 
@@ -834,6 +851,8 @@ void MainWindow::on_but_EST_4_released()
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
     destino = 4;
     ui->label_VIAJE->setText("VIAJANDO A ESTACION 4");
+    crearArrayCMD(DESTINATIONSTATION_CMD, 0);
+    EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
 }
 
 
@@ -842,6 +861,8 @@ void MainWindow::on_but_EST_5_released()
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
     destino = 5;
     ui->label_VIAJE->setText("VIAJANDO A ESTACION 5");
+    crearArrayCMD(DESTINATIONSTATION_CMD, 0);
+    EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
 }
 
 
@@ -850,6 +871,8 @@ void MainWindow::on_but_EST_6_released()
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
     destino = 6;
     ui->label_VIAJE->setText("VIAJANDO A ESTACION 6");
+    crearArrayCMD(DESTINATIONSTATION_CMD, 0);
+    EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
 }
 
 
@@ -858,6 +881,8 @@ void MainWindow::on_but_EST_7_released()
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
     destino = 7;
     ui->label_VIAJE->setText("VIAJANDO A ESTACION 7");
+    crearArrayCMD(DESTINATIONSTATION_CMD, 0);
+    EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
 }
 
 
@@ -887,6 +912,8 @@ void MainWindow::on_back_but_LLEGADA_released()
    ui->stackedWidget->setCurrentIndex(VIAJANDO);
    destino = 0;
    ui->label_VIAJE->setText("VIAJANDO A ESTACION ORIGEN");
+   crearArrayCMD(DESTINATIONSTATION_CMD, 0);
+   EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
 }
 
 

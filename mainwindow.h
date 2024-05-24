@@ -163,6 +163,8 @@ private slots:
 
     bool checkPermission(const QString &action);
 
+    void on_back_but_LLEGADA_pressed();
+
 private:
     Ui::MainWindow *ui;
 
@@ -266,5 +268,6 @@ private:
 //#define FAULT_CMD								0xB4
 #define PID_PARAMETERS_CMD						0xC0
 #define MAG_SENSOR_SIM_CMD						0xC1
+#define DESTINATIONSTATION_CMD					0xD4
 };
 #endif // MAINWINDOW_H
