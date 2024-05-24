@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="CONTROL">
      <widget class="QTabWidget" name="tabWidget">
@@ -73,7 +73,7 @@ QTabBar::tab:hover {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -333,9 +333,9 @@ QPushButton:pressed {
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>415</y>
-          <width>181</width>
-          <height>70</height>
+          <y>424</y>
+          <width>201</width>
+          <height>61</height>
          </rect>
         </property>
         <property name="maximumSize">
@@ -346,7 +346,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <pointsize>18</pointsize>
+          <pointsize>16</pointsize>
           <bold>true</bold>
          </font>
         </property>
@@ -3377,211 +3377,368 @@ QComboBox QAbstractItemView {
      <widget class="QLabel" name="label_aux">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>30</y>
-        <width>141</width>
+        <x>320</x>
+        <y>90</y>
+        <width>171</width>
         <height>41</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Desconectado&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>15</y>
-        <width>81</width>
-        <height>21</height>
+        <x>110</x>
+        <y>90</y>
+        <width>241</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>Funciona?</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Estado de conexion:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>140</y>
-        <width>121</width>
-        <height>16</height>
+        <x>120</x>
+        <y>160</y>
+        <width>171</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>Velocidad real</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Velocidad real&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_SPEED">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>160</y>
-        <width>81</width>
-        <height>31</height>
+        <x>120</x>
+        <y>200</y>
+        <width>121</width>
+        <height>51</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: black;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="label_17">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>230</y>
-        <width>91</width>
-        <height>16</height>
+        <x>120</x>
+        <y>280</y>
+        <width>151</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>Stattusword</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Stattusword&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_STATUSW">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>250</y>
-        <width>81</width>
-        <height>31</height>
+        <x>120</x>
+        <y>310</y>
+        <width>121</width>
+        <height>51</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: black;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="label_16">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>320</y>
-        <width>81</width>
-        <height>16</height>
+        <x>120</x>
+        <y>400</y>
+        <width>131</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>Corriente</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Corriente&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_CORR">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>340</y>
-        <width>81</width>
-        <height>21</height>
+        <x>120</x>
+        <y>430</y>
+        <width>121</width>
+        <height>51</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: black;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="label_18">
       <property name="geometry">
        <rect>
-        <x>520</x>
-        <y>130</y>
-        <width>121</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Posicion real</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_19">
-      <property name="geometry">
-       <rect>
-        <x>520</x>
-        <y>220</y>
-        <width>91</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Stattusword</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_CORR_pos">
-      <property name="geometry">
-       <rect>
-        <x>520</x>
-        <y>330</y>
-        <width>81</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_POS">
-      <property name="geometry">
-       <rect>
-        <x>520</x>
-        <y>150</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_20">
-      <property name="geometry">
-       <rect>
-        <x>520</x>
-        <y>310</y>
-        <width>81</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Corriente</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_STATUSW_pos">
-      <property name="geometry">
-       <rect>
-        <x>520</x>
-        <y>240</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_28">
-      <property name="geometry">
-       <rect>
-        <x>690</x>
-        <y>120</y>
+        <x>630</x>
+        <y>170</y>
         <width>161</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>Dsitancia real a obstaculo</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Posicion real&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>280</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Stattusword&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_CORR_pos">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>410</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: black;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_POS">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>200</y>
+        <width>101</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: black;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>380</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Corriente&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_STATUSW_pos">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>310</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: black;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_28">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>10</y>
+        <width>181</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Distancia real &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;a obstaculo&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_dist_real">
       <property name="geometry">
        <rect>
-        <x>690</x>
-        <y>160</y>
-        <width>71</width>
-        <height>31</height>
+        <x>860</x>
+        <y>20</y>
+        <width>101</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">    background-color: white;
+    border: 2px solid #265c4d;
+	color: black;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_aux_2">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>90</y>
+        <width>171</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Desconectado&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_29">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>90</y>
+        <width>241</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#14342c;&quot;&gt;Estado de conexion:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
+     <widget class="QFrame" name="frame_2">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>80</y>
+        <width>371</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">    background-color: #94a49c;  /* Fondo del área de contenido */
+    border: 2px solid #149c44;  /* Borde alrededor del área de contenido */
+border-radius: 8px;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_3">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>80</y>
+        <width>391</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">    background-color: #94a49c;  /* Fondo del área de contenido */
+    border: 2px solid #149c44;  /* Borde alrededor del área de contenido */
+border-radius: 8px;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <zorder>frame_3</zorder>
+     <zorder>frame_2</zorder>
+     <zorder>back_but_DATOS</zorder>
+     <zorder>label_aux</zorder>
+     <zorder>label</zorder>
+     <zorder>label_4</zorder>
+     <zorder>label_SPEED</zorder>
+     <zorder>label_17</zorder>
+     <zorder>label_STATUSW</zorder>
+     <zorder>label_16</zorder>
+     <zorder>label_CORR</zorder>
+     <zorder>label_18</zorder>
+     <zorder>label_19</zorder>
+     <zorder>label_CORR_pos</zorder>
+     <zorder>label_POS</zorder>
+     <zorder>label_20</zorder>
+     <zorder>label_STATUSW_pos</zorder>
+     <zorder>label_28</zorder>
+     <zorder>label_dist_real</zorder>
+     <zorder>label_aux_2</zorder>
+     <zorder>label_29</zorder>
     </widget>
    </widget>
   </widget>

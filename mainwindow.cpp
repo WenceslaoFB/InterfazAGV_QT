@@ -277,7 +277,7 @@ void MainWindow::RecibirDatos(uint8_t head){
         StatusWordVEL.u8[1] = ringRx.buf[head++];
         RealCurrentVEL.u8[0] = ringRx.buf[head++];
         RealCurrentVEL.u8[1] = ringRx.buf[head++];
-        ui->label_aux->setText("andaa");
+        ui->label_aux->setText("Conectado");
         ui->label_SPEED->setNum((RealSpeedVEL.i32*3)/8192.0);
         ui->label_STATUSW->setNum((int32_t)StatusWordVEL.u16[0]);
         ui->label_CORR->setNum((int32_t)RealCurrentVEL.i16[0]);
@@ -291,10 +291,16 @@ void MainWindow::RecibirDatos(uint8_t head){
         StatusWordDIR.u8[1] = ringRx.buf[head++];
         RealCurrentDIR.u8[0] = ringRx.buf[head++];
         RealCurrentDIR.u8[1] = ringRx.buf[head++];
-        ui->label_aux->setText("andaa");
+        ui->label_aux_2->setText("Conectado");
         ui->label_POS->setNum((RealPositionDIR.i32/1000)*5.49316);
         ui->label_STATUSW_pos->setNum((int32_t)StatusWordDIR.u16[0]);
         ui->label_CORR_pos->setNum((int32_t)RealCurrentDIR.i16[0]);
+        break;
+    case DESTINO_ALCANZADO_CMD:
+        ui->stackedWidget->setCurrentIndex(LLEGADA);
+        break;
+    case ORIGEN_ALCANZADO_CMD:
+        ui->stackedWidget->setCurrentIndex(SELECCION);
         break;
     case 0xCF:
         break;
@@ -481,7 +487,7 @@ void MainWindow::crearArrayCMD(uint8_t cmd, uint8_t id){
         payloadCAN[5] = 0x00;
         payloadCAN[6] = 0x00;
         payloadCAN[7] = (uint8_t)'E';
-        payloadCAN[8] = destino+30;
+        payloadCAN[8] = destino+'0';
         break;
     default:
         break;
