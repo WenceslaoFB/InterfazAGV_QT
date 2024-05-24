@@ -10,11 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    ultrasonicsensor.cpp
 
 HEADERS += \
     User.h \
-    mainwindow.h
+    mainwindow.h \
+    ultrasonicsensor.h
 
 FORMS += \
     mainwindow.ui
@@ -23,3 +25,8 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+unix{
+INCLUDEPATH += /usr/include/
+LIBS += -lpigpio -lrt -lpthread
+}
