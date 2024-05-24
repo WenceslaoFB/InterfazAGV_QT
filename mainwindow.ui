@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="CONTROL">
      <widget class="QTabWidget" name="tabWidget">
@@ -3336,6 +3336,65 @@ QComboBox QAbstractItemView {
        </property>
       </item>
      </widget>
+     <widget class="QFrame" name="frame_4">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>10</y>
+        <width>371</width>
+        <height>551</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">    background-color: #94a49c;  /* Fondo del área de contenido */
+    border: 2px solid #149c44;  /* Borde alrededor del área de contenido */
+border-radius: 8px;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_5">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>10</y>
+        <width>371</width>
+        <height>551</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">    background-color: #94a49c;  /* Fondo del área de contenido */
+    border: 2px solid #149c44;  /* Borde alrededor del área de contenido */
+border-radius: 8px;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <zorder>frame_5</zorder>
+     <zorder>frame_4</zorder>
+     <zorder>back_but_LOGIN</zorder>
+     <zorder>BUT_REG</zorder>
+     <zorder>label_21</zorder>
+     <zorder>LINE_REG_USER</zorder>
+     <zorder>LINE_REG_CONT</zorder>
+     <zorder>LINE_LOG_CONT</zorder>
+     <zorder>label_22</zorder>
+     <zorder>BUT_LOG</zorder>
+     <zorder>LINE_LOG_USER</zorder>
+     <zorder>label_23</zorder>
+     <zorder>label_24</zorder>
+     <zorder>label_25</zorder>
+     <zorder>label_26</zorder>
+     <zorder>label_27</zorder>
+     <zorder>comboBox_rol</zorder>
     </widget>
     <widget class="QWidget" name="DATOS">
      <widget class="QPushButton" name="back_but_DATOS">
