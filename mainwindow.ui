@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="CONTROL">
      <widget class="QTabWidget" name="tabWidget">
@@ -2324,6 +2324,19 @@ QPushButton:pressed {
         </layout>
        </item>
       </layout>
+     </widget>
+     <widget class="QPushButton" name="brake_mode">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>520</y>
+        <width>80</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>brake mode</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="ESTACION">

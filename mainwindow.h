@@ -163,11 +163,13 @@ private slots:
 
     bool checkPermission(const QString &action);
 
+    void on_brake_mode_released();
+
 private:
     Ui::MainWindow *ui;
 
     QSerialPort *serial;
-    QTimer *timerUSB;
+    QTimer *timerUSB,*ALIVEHMI;
 
     User *user1 = new User("user", "user");
     User *usergenerico = new User("user", "user");
@@ -178,6 +180,7 @@ private:
     void OnQSerialPort1Rx();
     void conectarMicro();
     void verificarYConectarUSB();
+    void AliveHMI();
     void crearArrayCMD(uint8_t cmd, uint8_t id);
     void EnviarComando(uint8_t length, uint8_t cmd, uint8_t payloadSEND[]);
 
@@ -245,7 +248,7 @@ private:
 #define ssssssss                            flagFaults.bit.b7
 
     //defines de placa
-#define ENABLE_MOTOR_CMD 						0x01 //COMANDO ENABLE MOTOR
+#define ENABLE_MOTOR_CMD 						0x01 // COMANDO ENABLE MOTOR
 #define DISABLE_MOTOR_CMD 						0x02 // COMANDO DISABLE MOTOR
 #define INVERTIR_1_CMD 							0x03
 #define INVERTIR_2_CMD 							0x04
@@ -266,8 +269,11 @@ private:
 //#define FAULT_CMD								0xB4
 #define PID_PARAMETERS_CMD						0xC0
 #define MAG_SENSOR_SIM_CMD						0xC1
+#define HMI_ALIVE_CMD							0xD2
 #define DESTINATIONSTATION_CMD					0xD4
 #define DESTINO_ALCANZADO_CMD                   0xD5
 #define ORIGEN_ALCANZADO_CMD                    0xD6
+#define BRAKE_MODE_SIM_CMD						0xD9
+
 };
 #endif // MAINWINDOW_H

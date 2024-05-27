@@ -39,6 +39,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(timerUSB, &QTimer::timeout, this, &MainWindow::verificarYConectarUSB);
     timerUSB->start(1000); // Intervalo de tiempo en milisegundos
 
+    ALIVEHMI = new QTimer(this);
+    connect(ALIVEHMI, &QTimer::timeout, this, &MainWindow::AliveHMI);
+    ALIVEHMI->start(1); // Intervalo de tiempo en milisegundos
+
     serial = new QSerialPort(this);
     /*//serial->setPortName("COM4"); // Ajusta el nombre del puerto a tu puerto correcto.
         serial->setPortName("COM12");
@@ -96,11 +100,24 @@ void MainWindow::conectarMicro(){
     }
 }
 
+void MainWindow::AliveHMI() {
+    static uint16_t counter = 0;
+
+    counter ++;
+    if (counter >= 25 && serial->isOpen()) {
+        crearArrayCMD(HMI_ALIVE_CMD,0);
+        EnviarComando(0x0B,HMI_ALIVE_CMD,payloadCAN);
+        counter = 0;
+    }
+
+}
+
 void MainWindow::verificarYConectarUSB() {
 
     if (serial->isOpen()) {
         // El dispositivo ya está conectado, no es necesario hacer nada.
         qDebug() << "Dispositivo ya conectado.";
+
     } else {
         // Intentar reconectar
         qDebug() << "Dispositivo desconectado. Intentando reconectar...";
@@ -325,6 +342,17 @@ void MainWindow::crearArrayCMD(uint8_t cmd, uint8_t id){
         payloadCAN[7] = distance_sensor.u8[2];
         payloadCAN[8] = distance_sensor.u8[3];
         break;
+    case HMI_ALIVE_CMD:
+        payloadCAN[0] = id;
+        payloadCAN[1] = 0x00;
+        payloadCAN[2] = 0x00;
+        payloadCAN[3] = 0x00;
+        payloadCAN[4] = 0x00;
+        payloadCAN[5] = 0x00;
+        payloadCAN[6] = 0x00;
+        payloadCAN[7] = 0x00;
+        payloadCAN[8] = 0x00;
+        break;
     case 0xBF://envia datos de simulacion de sensor mag
 
         payloadCAN[7] = 0;
@@ -488,6 +516,17 @@ void MainWindow::crearArrayCMD(uint8_t cmd, uint8_t id){
         payloadCAN[6] = 0x00;
         payloadCAN[7] = (uint8_t)'E';
         payloadCAN[8] = destino+'0';
+        break;
+    case BRAKE_MODE_SIM_CMD:
+        payloadCAN[0] = id;
+        payloadCAN[1] = 0x00;
+        payloadCAN[2] = 0x00;
+        payloadCAN[3] = 0x00;
+        payloadCAN[4] = 0x00;
+        payloadCAN[5] = 0x00;
+        payloadCAN[6] = 0x00;
+        payloadCAN[7] = 0x00;
+        payloadCAN[8] = 0x00;
         break;
     default:
         break;
@@ -1040,3 +1079,10 @@ bool MainWindow::checkPermission(const QString &action) {
    }
    return false;
 }
+
+void MainWindow::on_brake_mode_released()
+{
+   crearArrayCMD(DESTINATIONSTATION_CMD, 0);
+   EnviarComando(0x0B, BRAKE_MODE_SIM_CMD, payloadCAN);
+}
+
