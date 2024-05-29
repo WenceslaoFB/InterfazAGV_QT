@@ -156,10 +156,21 @@ void MainWindow::OnQSerialPort1Rx(){
 void MainWindow::updateDistance(double distance) {
     ui->label_dist_real->setText(QString::number(distance, 'f', 2) + " cm");
 
-    RealDistance.f = distance;
+    if(index_dist < 5){
+        Dist_prom[index_dist] = distance;
+        index_dist++;
+    }else{
+        for(uint8_t i = 0; i < 5; i++){
+            dist_aux = Dist_prom[i] + dist_aux;
+        }
 
-    crearArrayCMD(DISTANCE_SENSOR_CMD,ID_M_DIREC);
-    EnviarComando(0x0B, DISTANCE_SENSOR_CMD, payloadCAN);
+        RealDistance.f = dist_aux/5.0;
+
+        crearArrayCMD(DISTANCE_SENSOR_CMD,ID_M_DIREC);
+        EnviarComando(0x0B, DISTANCE_SENSOR_CMD, payloadCAN);
+        dist_aux = 0;
+        index_dist = 0;
+    }
 }
 
 void MainWindow::Decode(){
