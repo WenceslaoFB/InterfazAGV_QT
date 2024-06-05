@@ -185,7 +185,7 @@ private:
     void EnviarComando(uint8_t length, uint8_t cmd, uint8_t payloadSEND[]);
 
     uint8_t TX[256], payloadCAN[256],RX[256],indiceRX_r=0,indiceRX_t=0, sensorDats[9];
-    uint8_t payloadCANs[9], INV_1 = 0, Dist_enable = 0,  destino = 0, index_dist = 0;
+    uint8_t payloadCANs[9], INV_1 = 0, Dist_enable = 0,  destino = 0, index_dist = 0, Sesion_iniciada = 0;
 
     float vel_aux = 0, vel_slid = 0, pos_aux=0, dist_aux=0;
 
