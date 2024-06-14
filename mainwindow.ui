@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="CONTROL">
      <widget class="QTabWidget" name="tabWidget">
@@ -4053,6 +4053,57 @@ border-radius: 0px;</string>
      <zorder>frame_6</zorder>
      <zorder>label_40</zorder>
      <zorder>label_42</zorder>
+    </widget>
+    <widget class="QWidget" name="ERROR_LINEA">
+     <widget class="QPushButton" name="back_but_DATOS_2">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>10</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+		
+	
+	
+	background-color: rgb(255, 0, 0);
+	   color: rgb(0, 0, 0);   
+       border: 2px solid rgb(64, 64, 64);
+       border-radius: 5px;
+    }
+
+    QPushButton:pressed {
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(122, 0, 0);
+    }</string>
+      </property>
+      <property name="text">
+       <string>X</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>150</y>
+        <width>221</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>VOLVER A ARRANCAR</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

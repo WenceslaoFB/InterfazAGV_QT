@@ -165,6 +165,10 @@ private slots:
 
     void on_brake_mode_released();
 
+    void on_back_but_DATOS_2_released();
+
+    void on_pushButton_released();
+
 private:
     Ui::MainWindow *ui;
 
@@ -220,6 +224,7 @@ private:
 #define MANUAL_CMD                          0xD7
 #define CHANGE_MODE_CMD                     0xD8
 
+
 #define DISTANCE_SENSOR_CMD                 0xA9
 
 //Defines para pantallas
@@ -230,6 +235,7 @@ private:
     const int LLEGADA = 4;
     const int LOGIN = 5;
     const int DATOS = 6;
+    const int EROR_LINEA = 7;
 
     //Defines para comandos para recibir datos
 #define MOTOR_SPEED_DATA1_CMD               0xB0
@@ -276,7 +282,7 @@ private:
 #define DESTINATIONSTATION_CMD					0xD4
 #define DESTINO_ALCANZADO_CMD                   0xD5
 #define ORIGEN_ALCANZADO_CMD                    0xD6
-#define BRAKE_MODE_SIM_CMD						0xD9
+#define OUT_OF_LINE_CMD                         0xD9
 
 };
 #endif // MAINWINDOW_H

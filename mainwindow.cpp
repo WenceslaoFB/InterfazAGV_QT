@@ -330,7 +330,8 @@ void MainWindow::RecibirDatos(uint8_t head){
     case ORIGEN_ALCANZADO_CMD:
         ui->stackedWidget->setCurrentIndex(SELECCION);
         break;
-    case 0xCF:
+    case 0xD9:
+        ui->stackedWidget->setCurrentIndex(EROR_LINEA);
         break;
     default:
         //LED_RED_TOGGLE();
@@ -528,7 +529,7 @@ void MainWindow::crearArrayCMD(uint8_t cmd, uint8_t id){
         payloadCAN[7] = (uint8_t)'E';
         payloadCAN[8] = destino+'0';
         break;
-    case BRAKE_MODE_SIM_CMD:
+    case OUT_OF_LINE_CMD:
         payloadCAN[0] = id;
         payloadCAN[1] = 0x00;
         payloadCAN[2] = 0x00;
@@ -1128,7 +1129,21 @@ bool MainWindow::checkPermission(const QString &action) {
 
 void MainWindow::on_brake_mode_released()
 {
-   crearArrayCMD(DESTINATIONSTATION_CMD, 0);
-   EnviarComando(0x0B, BRAKE_MODE_SIM_CMD, payloadCAN);
+   //crearArrayCMD(DESTINATIONSTATION_CMD, 0);
+   //EnviarComando(0x0B, BRAKE_MODE_SIM_CMD, payloadCAN);
+}
+
+
+void MainWindow::on_back_but_DATOS_2_released()
+{
+    ui->stackedWidget->setCurrentIndex(PRINCIPAL);
+}
+
+
+void MainWindow::on_pushButton_released()
+{
+    crearArrayCMD(OUT_OF_LINE_CMD,0);
+    EnviarComando(0x0B,OUT_OF_LINE_CMD,payloadCAN);
+    ui->stackedWidget->setCurrentIndex(VIAJANDO);
 }
 
