@@ -330,8 +330,20 @@ void MainWindow::RecibirDatos(uint8_t head){
     case ORIGEN_ALCANZADO_CMD:
         ui->stackedWidget->setCurrentIndex(SELECCION);
         break;
-    case 0xD9:
+    case OUT_OF_LINE_CMD:
         ui->stackedWidget->setCurrentIndex(EROR_LINEA);
+        break;
+    case CARGA_COMPLETA:
+        voltaje_bat.u8[0] = ringRx.buf[head++];
+        voltaje_bat.u8[1] = ringRx.buf[head++];
+        carga_full = ringRx.buf[head++];
+        ui->label_carga_bat->setNum((int32_t)voltaje_bat.u16[0]);
+        ui->label_37->setText("Cargador Conectado");
+        break;
+    case CARGADOR_CON:
+        if(cargador_conec == 0){
+            QMessageBox::critical(this, "Error", "No se detecta cargador");
+        }
         break;
     default:
         //LED_RED_TOGGLE();
@@ -530,6 +542,17 @@ void MainWindow::crearArrayCMD(uint8_t cmd, uint8_t id){
         payloadCAN[8] = destino+'0';
         break;
     case OUT_OF_LINE_CMD:
+        payloadCAN[0] = id;
+        payloadCAN[1] = 0x00;
+        payloadCAN[2] = 0x00;
+        payloadCAN[3] = 0x00;
+        payloadCAN[4] = 0x00;
+        payloadCAN[5] = 0x00;
+        payloadCAN[6] = 0x00;
+        payloadCAN[7] = 0x00;
+        payloadCAN[8] = 0x00;
+        break;
+    case MODO_CARGA_CMD:
         payloadCAN[0] = id;
         payloadCAN[1] = 0x00;
         payloadCAN[2] = 0x00;
@@ -1127,23 +1150,30 @@ bool MainWindow::checkPermission(const QString &action) {
    return false;
 }
 
-void MainWindow::on_brake_mode_released()
-{
-   //crearArrayCMD(DESTINATIONSTATION_CMD, 0);
-   //EnviarComando(0x0B, BRAKE_MODE_SIM_CMD, payloadCAN);
-}
 
-
-void MainWindow::on_back_but_DATOS_2_released()
+void MainWindow::on_back_but_ERROR_SENS_released()
 {
     ui->stackedWidget->setCurrentIndex(PRINCIPAL);
 }
 
 
-void MainWindow::on_pushButton_released()
+void MainWindow::but_ERROR_SENS_CORRIG()
 {
     crearArrayCMD(OUT_OF_LINE_CMD,0);
     EnviarComando(0x0B,OUT_OF_LINE_CMD,payloadCAN);
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
+}
+
+void MainWindow::on_back_but_CARGA_released()
+{
+   ui->stackedWidget->setCurrentIndex(PRINCIPAL);
+}
+
+
+void MainWindow::on_but_GO_CARGA_released()
+{
+   crearArrayCMD(MODO_CARGA_CMD,0);
+   EnviarComando(0x0B,MODO_CARGA_CMD,payloadCAN);
+   ui->stackedWidget->setCurrentIndex(CARGA);
 }
 

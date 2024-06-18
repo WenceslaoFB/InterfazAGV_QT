@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>8</number>
     </property>
     <widget class="QWidget" name="CONTROL">
      <widget class="QTabWidget" name="tabWidget">
@@ -2136,7 +2136,7 @@ QPushButton:pressed {
         <x>-1</x>
         <y>23</y>
         <width>1061</width>
-        <height>471</height>
+        <height>511</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -2323,20 +2323,47 @@ QPushButton:pressed {
          </item>
         </layout>
        </item>
+       <item>
+        <widget class="QPushButton" name="but_GO_CARGA">
+         <property name="maximumSize">
+          <size>
+           <width>10000</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string>Cargar Bateria</string>
+         </property>
+        </widget>
+       </item>
       </layout>
-     </widget>
-     <widget class="QPushButton" name="brake_mode">
-      <property name="geometry">
-       <rect>
-        <x>470</x>
-        <y>520</y>
-        <width>80</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>brake mode</string>
-      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="ESTACION">
@@ -4055,7 +4082,7 @@ border-radius: 0px;</string>
      <zorder>label_42</zorder>
     </widget>
     <widget class="QWidget" name="ERROR_LINEA">
-     <widget class="QPushButton" name="back_but_DATOS_2">
+     <widget class="QPushButton" name="back_but_ERROR_SENS">
       <property name="geometry">
        <rect>
         <x>1000</x>
@@ -4091,7 +4118,7 @@ border-radius: 0px;</string>
        <string>X</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="but_ERROR_SENS_CORRIG">
       <property name="geometry">
        <rect>
         <x>460</x>
@@ -4102,6 +4129,83 @@ border-radius: 0px;</string>
       </property>
       <property name="text">
        <string>VOLVER A ARRANCAR</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="CARGA">
+     <widget class="QPushButton" name="back_but_CARGA">
+      <property name="geometry">
+       <rect>
+        <x>970</x>
+        <y>50</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+		
+	
+	
+	background-color: rgb(255, 0, 0);
+	   color: rgb(0, 0, 0);   
+       border: 2px solid rgb(64, 64, 64);
+       border-radius: 5px;
+    }
+
+    QPushButton:pressed {
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(122, 0, 0);
+    }</string>
+      </property>
+      <property name="text">
+       <string>X</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_35">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>110</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Carga</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_carga_bat">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>100</y>
+        <width>81</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_37">
+      <property name="geometry">
+       <rect>
+        <x>640</x>
+        <y>290</y>
+        <width>131</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
       </property>
      </widget>
     </widget>

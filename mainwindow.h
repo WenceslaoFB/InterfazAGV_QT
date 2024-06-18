@@ -163,11 +163,13 @@ private slots:
 
     bool checkPermission(const QString &action);
 
-    void on_brake_mode_released();
+    void but_ERROR_SENS_CORRIG();
 
-    void on_back_but_DATOS_2_released();
+    void on_back_but_ERROR_SENS_released();
 
-    void on_pushButton_released();
+    void on_back_but_CARGA_released();
+
+    void on_but_GO_CARGA_released();
 
 private:
     Ui::MainWindow *ui;
@@ -189,7 +191,7 @@ private:
     void EnviarComando(uint8_t length, uint8_t cmd, uint8_t payloadSEND[]);
 
     uint8_t TX[256], payloadCAN[256],RX[256],indiceRX_r=0,indiceRX_t=0, sensorDats[9];
-    uint8_t payloadCANs[9], INV_1 = 0, Dist_enable = 0,  destino = 0, index_dist = 0, Sesion_iniciada = 0;
+    uint8_t payloadCANs[9], INV_1 = 0, Dist_enable = 0,  destino = 0, index_dist = 0, Sesion_iniciada = 0, carga_full = 0, cargador_conec = 2;
 
     float vel_aux = 0, vel_slid = 0, pos_aux=0, dist_aux=0;
 
@@ -200,7 +202,7 @@ private:
     _sWork pos_cmd, pos_ing, velocidad_cmd, distance_sensor,KP_SteeringMotor,KD_SteeringMotor,KI_SteeringMotor;
     _sWork RealSpeedVEL,StatusWordVEL,RealCurrentVEL; //Variables para almacenar datos enviados del motor velocidad por TPDO1
     _sWork RealPositionDIR,StatusWordDIR,RealCurrentDIR;//Variables para almacenar datos enviados del motor direccion por TPDO1
-    _sWork RealDistance;
+    _sWork RealDistance, voltaje_bat;
 
     volatile _sFlag flagFaults;
 
@@ -236,6 +238,7 @@ private:
     const int LOGIN = 5;
     const int DATOS = 6;
     const int EROR_LINEA = 7;
+    const int CARGA = 8;
 
     //Defines para comandos para recibir datos
 #define MOTOR_SPEED_DATA1_CMD               0xB0
@@ -283,6 +286,9 @@ private:
 #define DESTINO_ALCANZADO_CMD                   0xD5
 #define ORIGEN_ALCANZADO_CMD                    0xD6
 #define OUT_OF_LINE_CMD                         0xD9
+#define MODO_CARGA_CMD                          0xDA
+#define CARGA_COMPLETA                          0xDB
+#define CARGADOR_CON                            0xDC
 
 };
 #endif // MAINWINDOW_H
