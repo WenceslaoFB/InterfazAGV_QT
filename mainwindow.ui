@@ -2134,7 +2134,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>23</y>
+        <y>30</y>
         <width>1001</width>
         <height>511</height>
        </rect>
@@ -2955,7 +2955,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>140</x>
-        <y>470</y>
+        <y>480</y>
         <width>250</width>
         <height>70</height>
        </rect>
@@ -2992,7 +2992,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>590</x>
-        <y>50</y>
+        <y>60</y>
         <width>250</width>
         <height>101</height>
        </rect>
@@ -3039,7 +3039,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>140</x>
-        <y>160</y>
+        <y>170</y>
         <width>250</width>
         <height>70</height>
        </rect>
@@ -3069,7 +3069,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>140</x>
-        <y>380</y>
+        <y>390</y>
         <width>250</width>
         <height>70</height>
        </rect>
@@ -3102,7 +3102,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>590</x>
-        <y>350</y>
+        <y>360</y>
         <width>250</width>
         <height>70</height>
        </rect>
@@ -3135,7 +3135,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>140</x>
-        <y>10</y>
+        <y>20</y>
         <width>250</width>
         <height>101</height>
        </rect>
@@ -3182,7 +3182,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>590</x>
-        <y>450</y>
+        <y>460</y>
         <width>250</width>
         <height>70</height>
        </rect>
@@ -3219,7 +3219,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>590</x>
-        <y>220</y>
+        <y>230</y>
         <width>250</width>
         <height>70</height>
        </rect>
@@ -3249,7 +3249,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>140</x>
-        <y>120</y>
+        <y>130</y>
         <width>191</width>
         <height>41</height>
        </rect>
@@ -3262,7 +3262,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>140</x>
-        <y>340</y>
+        <y>350</y>
         <width>211</width>
         <height>41</height>
        </rect>
@@ -3275,7 +3275,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>590</x>
-        <y>180</y>
+        <y>190</y>
         <width>191</width>
         <height>41</height>
        </rect>
@@ -3288,7 +3288,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>590</x>
-        <y>310</y>
+        <y>320</y>
         <width>211</width>
         <height>41</height>
        </rect>
@@ -3301,7 +3301,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>140</x>
-        <y>240</y>
+        <y>250</y>
         <width>191</width>
         <height>41</height>
        </rect>
@@ -3314,7 +3314,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>140</x>
-        <y>280</y>
+        <y>290</y>
         <width>251</width>
         <height>61</height>
        </rect>
@@ -3380,7 +3380,7 @@ QComboBox QAbstractItemView {
       <property name="geometry">
        <rect>
         <x>80</x>
-        <y>0</y>
+        <y>10</y>
         <width>371</width>
         <height>551</height>
        </rect>
@@ -3401,7 +3401,7 @@ border-radius: 8px;</string>
       <property name="geometry">
        <rect>
         <x>530</x>
-        <y>0</y>
+        <y>10</y>
         <width>371</width>
         <height>551</height>
        </rect>
@@ -3477,7 +3477,7 @@ border-radius: 8px;</string>
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>110</y>
+        <y>119</y>
         <width>211</width>
         <height>51</height>
        </rect>
@@ -3490,7 +3490,7 @@ border-radius: 8px;</string>
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>160</y>
+        <y>169</y>
         <width>121</width>
         <height>51</height>
        </rect>
@@ -3517,7 +3517,7 @@ border-radius: 8px;</string>
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>230</y>
+        <y>239</y>
         <width>241</width>
         <height>41</height>
        </rect>
@@ -3530,7 +3530,7 @@ border-radius: 8px;</string>
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>270</y>
+        <y>279</y>
         <width>121</width>
         <height>51</height>
        </rect>
@@ -3557,7 +3557,7 @@ border-radius: 8px;</string>
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>340</y>
+        <y>349</y>
         <width>191</width>
         <height>41</height>
        </rect>
@@ -3570,7 +3570,7 @@ border-radius: 8px;</string>
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>380</y>
+        <y>389</y>
         <width>121</width>
         <height>51</height>
        </rect>
@@ -3597,7 +3597,7 @@ border-radius: 8px;</string>
       <property name="geometry">
        <rect>
         <x>510</x>
-        <y>110</y>
+        <y>119</y>
         <width>171</width>
         <height>51</height>
        </rect>
@@ -3610,7 +3610,7 @@ border-radius: 8px;</string>
       <property name="geometry">
        <rect>
         <x>510</x>
-        <y>230</y>
+        <y>239</y>
         <width>211</width>
         <height>41</height>
        </rect>
@@ -3623,7 +3623,7 @@ border-radius: 8px;</string>
       <property name="geometry">
        <rect>
         <x>510</x>
-        <y>380</y>
+        <y>389</y>
         <width>121</width>
         <height>51</height>
        </rect>
@@ -3644,7 +3644,7 @@ border-radius: 8px;</string>
       <property name="geometry">
        <rect>
         <x>510</x>
-        <y>160</y>
+        <y>169</y>
         <width>121</width>
         <height>51</height>
        </rect>
@@ -3665,7 +3665,7 @@ border-radius: 8px;</string>
       <property name="geometry">
        <rect>
         <x>510</x>
-        <y>340</y>
+        <y>349</y>
         <width>131</width>
         <height>41</height>
        </rect>
@@ -3678,7 +3678,7 @@ border-radius: 8px;</string>
       <property name="geometry">
        <rect>
         <x>510</x>
-        <y>270</y>
+        <y>279</y>
         <width>121</width>
         <height>51</height>
        </rect>
@@ -3699,7 +3699,7 @@ border-radius: 8px;</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>30</y>
+        <y>39</y>
         <width>431</width>
         <height>420</height>
        </rect>
@@ -3808,7 +3808,7 @@ color: #14342c;</string>
       <property name="geometry">
        <rect>
         <x>490</x>
-        <y>30</y>
+        <y>39</y>
         <width>431</width>
         <height>420</height>
        </rect>
@@ -3904,7 +3904,7 @@ color: #14342c;</string>
       <property name="geometry">
        <rect>
         <x>270</x>
-        <y>460</y>
+        <y>470</y>
         <width>401</width>
         <height>91</height>
        </rect>
@@ -4020,7 +4020,7 @@ border-radius: 0px;</string>
       <property name="geometry">
        <rect>
         <x>240</x>
-        <y>220</y>
+        <y>229</y>
         <width>151</width>
         <height>121</height>
        </rect>
@@ -4043,7 +4043,7 @@ border-radius: 0px;</string>
       <property name="geometry">
        <rect>
         <x>710</x>
-        <y>220</y>
+        <y>229</y>
         <width>151</width>
         <height>121</height>
        </rect>
@@ -4211,17 +4211,6 @@ border-radius: 0px;</string>
     </widget>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1024</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
