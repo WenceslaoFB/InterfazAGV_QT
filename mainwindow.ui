@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>8</number>
     </property>
     <widget class="QWidget" name="CONTROL">
      <widget class="QTabWidget" name="tabWidget">
@@ -4179,7 +4179,7 @@ border-radius: 0px;</string>
        </rect>
       </property>
       <property name="text">
-       <string>Carga</string>
+       <string>Voltaje</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_carga_bat">
@@ -4206,6 +4206,32 @@ border-radius: 0px;</string>
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_carga_cor">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>200</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_38">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>190</y>
+        <width>91</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>corriente</string>
       </property>
      </widget>
     </widget>

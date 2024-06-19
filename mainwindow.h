@@ -202,7 +202,7 @@ private:
     _sWork pos_cmd, pos_ing, velocidad_cmd, distance_sensor,KP_SteeringMotor,KD_SteeringMotor,KI_SteeringMotor;
     _sWork RealSpeedVEL,StatusWordVEL,RealCurrentVEL; //Variables para almacenar datos enviados del motor velocidad por TPDO1
     _sWork RealPositionDIR,StatusWordDIR,RealCurrentDIR;//Variables para almacenar datos enviados del motor direccion por TPDO1
-    _sWork RealDistance, voltaje_bat;
+    _sWork RealDistance, voltaje_bat, corriente_bat;
 
     volatile _sFlag flagFaults;
 

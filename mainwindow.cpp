@@ -336,8 +336,11 @@ void MainWindow::RecibirDatos(uint8_t head){
     case CARGA_COMPLETA:
         voltaje_bat.u8[0] = ringRx.buf[head++];
         voltaje_bat.u8[1] = ringRx.buf[head++];
+        corriente_bat.u8[0] = ringRx.buf[head++];
+        corriente_bat.u8[1] = ringRx.buf[head++];
         carga_full = ringRx.buf[head++];
         ui->label_carga_bat->setNum((int32_t)voltaje_bat.u16[0]);
+        ui->label_carga_cor->setNum((int32_t)corriente_bat.u16[0]);
         ui->label_37->setText("Cargador Conectado");
         break;
     case CARGADOR_CON:
