@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>8</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="CONTROL">
      <widget class="QTabWidget" name="tabWidget">
@@ -73,7 +73,7 @@ QTabBar::tab:hover {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -286,7 +286,7 @@ QPushButton:pressed {
 	font-weight: bold;</string>
         </property>
         <property name="inputMethodHints">
-         <set>Qt::ImhDigitsOnly</set>
+         <set>Qt::ImhDigitsOnly|Qt::ImhNoPredictiveText</set>
         </property>
         <property name="frame">
          <bool>true</bool>
@@ -1061,6 +1061,9 @@ QComboBox QAbstractItemView {
     padding: 5px 10px;
 	font-weight: bold;</string>
                </property>
+               <property name="inputMethodHints">
+                <set>Qt::ImhNoPredictiveText</set>
+               </property>
               </widget>
              </item>
             </layout>
@@ -1094,6 +1097,9 @@ QComboBox QAbstractItemView {
     border-radius: 8px;
     padding: 5px 10px;
 	font-weight: bold;</string>
+               </property>
+               <property name="inputMethodHints">
+                <set>Qt::ImhNoPredictiveText</set>
                </property>
               </widget>
              </item>
@@ -1129,6 +1135,9 @@ QComboBox QAbstractItemView {
     padding: 5px 10px;
 	font-weight: bold;</string>
                </property>
+               <property name="inputMethodHints">
+                <set>Qt::ImhNoPredictiveText</set>
+               </property>
               </widget>
              </item>
             </layout>
@@ -1162,6 +1171,9 @@ QComboBox QAbstractItemView {
     border-radius: 8px;
     padding: 5px 10px;
 	font-weight: bold;</string>
+               </property>
+               <property name="inputMethodHints">
+                <set>Qt::ImhNoPredictiveText</set>
                </property>
               </widget>
              </item>
@@ -1981,10 +1993,13 @@ QPushButton:pressed {
         <property name="styleSheet">
          <string notr="true">    background-color: white;
     border: 2px solid #265c4d;
-	color: white;
+	color: black;
     border-radius: 8px;
     padding: 5px 10px;
 	font-weight: bold;</string>
+        </property>
+        <property name="inputMethodHints">
+         <set>Qt::ImhNoPredictiveText</set>
         </property>
        </widget>
        <widget class="QLabel" name="label_KD_steering">
@@ -2024,10 +2039,13 @@ QPushButton:pressed {
         <property name="styleSheet">
          <string notr="true">    background-color: white;
     border: 2px solid #265c4d;
-	color: white;
+	color: black;
     border-radius: 8px;
     padding: 5px 10px;
 	font-weight: bold;</string>
+        </property>
+        <property name="inputMethodHints">
+         <set>Qt::ImhNoPredictiveText</set>
         </property>
        </widget>
        <widget class="QLabel" name="label_KI_steering">
@@ -2067,10 +2085,13 @@ QPushButton:pressed {
         <property name="styleSheet">
          <string notr="true">    background-color: white;
     border: 2px solid #265c4d;
-	color: white;
+	color: black;
     border-radius: 8px;
     padding: 5px 10px;
 	font-weight: bold;</string>
+        </property>
+        <property name="inputMethodHints">
+         <set>Qt::ImhNoPredictiveText</set>
         </property>
        </widget>
        <zorder>label_KP_steering</zorder>
@@ -3059,7 +3080,7 @@ QPushButton:pressed {
 	font-weight: bold;</string>
       </property>
       <property name="inputMethodHints">
-       <set>Qt::ImhNoAutoUppercase</set>
+       <set>Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText</set>
       </property>
       <property name="frame">
        <bool>true</bool>
