@@ -1,6 +1,6 @@
 QT       += core gui serialport
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets virtualkeyboard
 
 CONFIG += c++17
 

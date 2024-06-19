@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>8</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="CONTROL">
      <widget class="QTabWidget" name="tabWidget">
@@ -3059,7 +3059,7 @@ QPushButton:pressed {
 	font-weight: bold;</string>
       </property>
       <property name="inputMethodHints">
-       <set>Qt::ImhDigitsOnly</set>
+       <set>Qt::ImhNoAutoUppercase</set>
       </property>
       <property name="frame">
        <bool>true</bool>
@@ -3089,7 +3089,7 @@ QPushButton:pressed {
 	font-weight: bold;</string>
       </property>
       <property name="inputMethodHints">
-       <set>Qt::ImhDigitsOnly|Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+       <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
       </property>
       <property name="frame">
        <bool>true</bool>
@@ -3122,7 +3122,7 @@ QPushButton:pressed {
 	font-weight: bold;</string>
       </property>
       <property name="inputMethodHints">
-       <set>Qt::ImhDigitsOnly|Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+       <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
       </property>
       <property name="frame">
        <bool>true</bool>
@@ -3239,7 +3239,7 @@ QPushButton:pressed {
 	font-weight: bold;</string>
       </property>
       <property name="inputMethodHints">
-       <set>Qt::ImhDigitsOnly</set>
+       <set>Qt::ImhNoAutoUppercase</set>
       </property>
       <property name="frame">
        <bool>true</bool>
