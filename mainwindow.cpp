@@ -9,6 +9,7 @@
 #include <QString>
 #include <QByteArray>
 #include <QDebug>
+#include <QApplication>
 #include <QFile>
 #include <QTextStream>
 #include <QCryptographicHash>
@@ -341,7 +342,7 @@ void MainWindow::RecibirDatos(uint8_t head){
         carga_full = ringRx.buf[head++];
         ui->label_carga_bat->setNum((int32_t)voltaje_bat.u16[0]);
         ui->label_carga_cor->setNum((int32_t)corriente_bat.u16[0]);
-        ui->label_37->setText("Cargador Conectado");
+        ui->label_37->setText("Conectado");
         break;
     case CARGADOR_CON:
         if(cargador_conec == 0){
@@ -921,71 +922,86 @@ void MainWindow::on_back_but_ESTACION_released()
 
 void MainWindow::on_but_EST_1_released()
 {
-    ui->stackedWidget->setCurrentIndex(VIAJANDO);
-    destino = 1;
-    ui->label_VIAJE->setText("VIAJANDO A ESTACION 1");
-    crearArrayCMD(DESTINATIONSTATION_CMD, 0);
-    EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
+    if(button_confirm()){
+        ui->stackedWidget->setCurrentIndex(VIAJANDO);
+        destino = 1;
+        ui->label_VIAJE->setText("VIAJANDO A ESTACION 1");
+        crearArrayCMD(DESTINATIONSTATION_CMD, 0);
+        EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
+    }
+
 }
 
 
 void MainWindow::on_but_EST_2_released()
 {
+    if(button_confirm()){
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
     destino = 2;
     ui->label_VIAJE->setText("VIAJANDO A ESTACION 2");
     crearArrayCMD(DESTINATIONSTATION_CMD, 0);
     EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
+    }
 }
 
 
 void MainWindow::on_but_EST_3_released()
 {
+    if(button_confirm()){
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
     destino = 3;
     ui->label_VIAJE->setText("VIAJANDO A ESTACION 3");
     crearArrayCMD(DESTINATIONSTATION_CMD, 0);
     EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
+    }
 }
 
 
 void MainWindow::on_but_EST_4_released()
 {
+    if(button_confirm()){
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
     destino = 4;
     ui->label_VIAJE->setText("VIAJANDO A ESTACION 4");
     crearArrayCMD(DESTINATIONSTATION_CMD, 0);
     EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
+    }
 }
 
 
 void MainWindow::on_but_EST_5_released()
 {
+    if(button_confirm()){
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
     destino = 5;
     ui->label_VIAJE->setText("VIAJANDO A ESTACION 5");
     crearArrayCMD(DESTINATIONSTATION_CMD, 0);
     EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
+    }
 }
 
 
 void MainWindow::on_but_EST_6_released()
 {
+    if(button_confirm()){
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
     destino = 6;
     ui->label_VIAJE->setText("VIAJANDO A ESTACION 6");
     crearArrayCMD(DESTINATIONSTATION_CMD, 0);
     EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
+    }
 }
 
 
 void MainWindow::on_but_EST_7_released()
 {
+    if(button_confirm()){
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
     destino = 7;
     ui->label_VIAJE->setText("VIAJANDO A ESTACION 7");
     crearArrayCMD(DESTINATIONSTATION_CMD, 0);
     EnviarComando(0x0B, DESTINATIONSTATION_CMD, payloadCAN);
+    }
 }
 
 
@@ -1178,5 +1194,16 @@ void MainWindow::on_but_GO_CARGA_released()
    crearArrayCMD(MODO_CARGA_CMD,0);
    EnviarComando(0x0B,MODO_CARGA_CMD,payloadCAN);
    ui->stackedWidget->setCurrentIndex(CARGA);
+}
+
+bool MainWindow::button_confirm() {
+
+   QMessageBox::StandardButton reply;
+   reply = QMessageBox::question(this, "Confirmacion", "Se seleccionó la estacion correcta?", QMessageBox::Yes|QMessageBox::No);
+   if (reply == QMessageBox::Yes) {
+                return 1;
+   } else {
+                return 0;
+   }
 }
 

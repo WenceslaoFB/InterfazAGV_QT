@@ -171,6 +171,8 @@ private slots:
 
     void on_but_GO_CARGA_released();
 
+    bool button_confirm();
+
 private:
     Ui::MainWindow *ui;
 
