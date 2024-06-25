@@ -340,8 +340,8 @@ void MainWindow::RecibirDatos(uint8_t head){
         corriente_bat.u8[0] = ringRx.buf[head++];
         corriente_bat.u8[1] = ringRx.buf[head++];
         carga_full = ringRx.buf[head++];
-        ui->label_carga_bat->setNum((int32_t)voltaje_bat.u16[0]);
-        ui->label_carga_cor->setNum((int32_t)corriente_bat.u16[0]);
+       // ui->label_carga_bat->setNum((int32_t)voltaje_bat.u16[0]);
+       // ui->label_carga_cor->setNum((int32_t)corriente_bat.u16[0]);
         ui->label_37->setText("Conectado");
         break;
     case CARGADOR_CON:
@@ -1198,12 +1198,30 @@ void MainWindow::on_but_GO_CARGA_released()
 
 bool MainWindow::button_confirm() {
 
-   QMessageBox::StandardButton reply;
-   reply = QMessageBox::question(this, "Confirmacion", "Se seleccionó la estacion correcta?", QMessageBox::Yes|QMessageBox::No);
-   if (reply == QMessageBox::Yes) {
-                return 1;
-   } else {
-                return 0;
-   }
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("Confirmación");
+    msgBox.setText("¿Se seleccionó la estación correcta?");
+    msgBox.setIcon(QMessageBox::Question);
+
+    // Agregando botones con estilos personalizados
+    QPushButton *yesButton = msgBox.addButton(QMessageBox::Yes);
+    QPushButton *noButton = msgBox.addButton(QMessageBox::No);
+
+    // Estableciendo texto personalizado
+    yesButton->setText("Sí");
+    noButton->setText("No");
+
+    // Aplicando estilos
+    yesButton->setStyleSheet("QPushButton { color: white; background-color: #149c44; font-weight: bold}");
+    noButton->setStyleSheet("QPushButton { color: white; background-color: rgb(255, 0, 0); font-weight: bold}");
+
+    msgBox.setDefaultButton(QMessageBox::No);
+    int reply = msgBox.exec();
+
+    if (reply == QMessageBox::Yes) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
