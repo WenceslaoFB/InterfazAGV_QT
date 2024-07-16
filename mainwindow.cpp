@@ -42,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ALIVEHMI = new QTimer(this);
     connect(ALIVEHMI, &QTimer::timeout, this, &MainWindow::AliveHMI);
-    ALIVEHMI->start(1); // Intervalo de tiempo en milisegundos
+    //ALIVEHMI->start(100); // Intervalo de tiempo en milisegundos
 
     serial = new QSerialPort(this);
     /*//serial->setPortName("COM4"); // Ajusta el nombre del puerto a tu puerto correcto.
@@ -107,7 +107,7 @@ void MainWindow::AliveHMI() {
     counter ++;
     if (counter >= 25 && serial->isOpen()) {
         crearArrayCMD(HMI_ALIVE_CMD,0);
-        EnviarComando(0x0B,HMI_ALIVE_CMD,payloadCAN);
+        //EnviarComando(0x0B,HMI_ALIVE_CMD,payloadCAN);
         counter = 0;
     }
 
@@ -167,8 +167,8 @@ void MainWindow::updateDistance(double distance) {
 
         RealDistance.f = dist_aux/5.0;
 
-        crearArrayCMD(DISTANCE_SENSOR_CMD,ID_M_DIREC);
-        EnviarComando(0x0B, DISTANCE_SENSOR_CMD, payloadCAN);
+        //crearArrayCMD(DISTANCE_SENSOR_CMD,ID_M_DIREC);
+        //EnviarComando(0x0B, DISTANCE_SENSOR_CMD, payloadCAN);
         dist_aux = 0;
         index_dist = 0;
     }
@@ -270,7 +270,43 @@ void MainWindow::Decode(){
 void MainWindow::RecibirDatos(uint8_t head){
     switch (ringRx.buf[head++]){
     case 0xD2:
-        //algo
+        actualControlMode = ringRx.buf[head++];
+        switch (actualControlMode) {
+        case MANUAL_MODE:
+            ui->but_cambio_mode->setText("MANUAL");
+            break;
+        case AUTOMATIC_MODE:
+            ui->but_cambio_mode->setText("AUTOMATICO");
+            break;
+        case INIT_MODE:
+            ui->but_cambio_mode->setText("INIT");
+            break;
+        case BRAKE_MODE:
+            ui->but_cambio_mode->setText("BRAKE MODE");
+            break;
+        default:
+            break;
+        }
+        break;
+    case 0x0F:
+        actualControlMode = ringRx.buf[head++];
+        switch (actualControlMode) {
+        case MANUAL_MODE:
+            ui->but_cambio_mode->setText("MANUAL");
+            break;
+        case AUTOMATIC_MODE:
+            ui->but_cambio_mode->setText("AUTOMATICO");
+            break;
+        case INIT_MODE:
+            ui->but_cambio_mode->setText("INIT");
+            break;
+        case BRAKE_MODE:
+            ui->but_cambio_mode->setText("BRAKE MODE");
+            break;
+        default:
+            break;
+        }
+
         break;
     case ENABLE_MOTOR_CMD:
         break;
@@ -348,6 +384,9 @@ void MainWindow::RecibirDatos(uint8_t head){
         if(cargador_conec == 0){
             QMessageBox::critical(this, "Error", "No se detecta cargador");
         }
+        break;
+    case CHANGE_MODE_CMD:
+
         break;
     default:
         //LED_RED_TOGGLE();
@@ -1020,7 +1059,15 @@ void MainWindow::on_back_but_viaje_2_released()
 void MainWindow::on_but_cambio_mode_released()
 {
    crearArrayCMD(CHANGE_MODE_CMD, ID_M_VEL);
-   EnviarComando(0xD8, CHANGE_MODE_CMD, payloadCAN);
+   if(actualControlMode == MANUAL_MODE){
+        payloadCAN[1] = AUTOMATIC_MODE;
+        //ui->but_cambio_mode->setText("AUTOMATICO");
+   }
+   else{
+        payloadCAN[1] = MANUAL_MODE;
+        //ui->but_cambio_mode->setText("AUTOMATICO");
+   }
+   EnviarComando(0x0B, CHANGE_MODE_CMD, payloadCAN);
 }
 
 

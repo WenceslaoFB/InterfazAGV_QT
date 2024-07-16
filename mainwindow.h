@@ -194,7 +194,7 @@ private:
 
     uint8_t TX[256], payloadCAN[256],RX[256],indiceRX_r=0,indiceRX_t=0, sensorDats[9];
     uint8_t payloadCANs[9], INV_1 = 0, Dist_enable = 0,  destino = 0, index_dist = 0, Sesion_iniciada = 0, carga_full = 0, cargador_conec = 2;
-
+    uint8_t actualControlMode = 0;
     float vel_aux = 0, vel_slid = 0, pos_aux=0, dist_aux=0;
 
     float Dist_prom[5];
@@ -227,6 +227,12 @@ private:
     //Manual
 #define MANUAL_CMD                          0xD7
 #define CHANGE_MODE_CMD                     0xD8
+
+#define INIT_MODE 								0x00
+#define MANUAL_MODE								0x01
+#define AUTOMATIC_MODE							0x02
+#define BRAKE_MODE								0x03
+#define CHARGE_BATTERY_MODE						0x04
 
 
 #define DISTANCE_SENSOR_CMD                 0xA9
