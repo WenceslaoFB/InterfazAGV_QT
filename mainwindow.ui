@@ -73,7 +73,7 @@ QTabBar::tab:hover {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -327,49 +327,6 @@ QPushButton:pressed {
         </property>
         <property name="text">
          <string>Enviar</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="but_cambio_mode">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>424</y>
-          <width>201</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>16</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-    /* Estilo inicial del botón */
-    background-color: #149c44;
-    border: 2px solid #265c4d;
-	color: white;
-    border-radius: 8px;
-    padding: 5px 10px;
-	font-weight: bold;
-}
-
-QPushButton:pressed {
-    /* Estilo del botón cuando está presionado */
-    background-color:  #265c4d;
-    border: 2px solid #265c4d;
-	color: white;
-}</string>
-        </property>
-        <property name="text">
-         <string>Correciones</string>
         </property>
        </widget>
       </widget>
@@ -906,7 +863,7 @@ QSlider::sub-page:horizontal {
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>60</y>
+          <y>30</y>
           <width>981</width>
           <height>251</height>
          </rect>
@@ -1219,6 +1176,234 @@ QPushButton:pressed {
           </widget>
          </item>
         </layout>
+       </widget>
+       <widget class="QLabel" name="label_43">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>300</y>
+          <width>261</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>340</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>20</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #14342c;
+    font-weight: bold;
+	border: 3px solid;
+	border-radius: 10px;
+	border-color:  #1c9c4c;
+	background-color:  white;
+}</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; color:#14342c;&quot;&gt;Cambio de Modo&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::RichText</enum>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="but_cambio_mode_AUT">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>390</y>
+          <width>201</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+        </property>
+        <property name="text">
+         <string>Automatico</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="but_cambio_mode_MAN">
+        <property name="geometry">
+         <rect>
+          <x>550</x>
+          <y>390</y>
+          <width>201</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+        </property>
+        <property name="text">
+         <string>Manual</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="but_cambio_mode_BRAKE">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>390</y>
+          <width>201</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    /* Estilo inicial del botón */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+	color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+    /* Estilo del botón cuando está presionado */
+    background-color:  #265c4d;
+    border: 2px solid #265c4d;
+	color: white;
+}</string>
+        </property>
+        <property name="text">
+         <string>Frenado</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_44">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>360</y>
+          <width>181</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700; color:#14342c;&quot;&gt;Modo Actual:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_mode">
+        <property name="geometry">
+         <rect>
+          <x>45</x>
+          <y>400</y>
+          <width>201</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:#14342c;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_4">

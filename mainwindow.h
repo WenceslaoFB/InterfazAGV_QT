@@ -152,9 +152,6 @@ private slots:
 
     void on_back_but_viaje_2_released();
 
-    void on_but_cambio_mode_released();
-
-
     void on_back_but_LLEGADA_released();
 
     void on_BUT_REG_released();
@@ -172,6 +169,12 @@ private slots:
     void on_but_GO_CARGA_released();
 
     bool button_confirm();
+
+    void on_but_cambio_mode_AUT_released();
+
+    void on_but_cambio_mode_MAN_released();
+
+    void on_but_cambio_mode_BRAKE_released();
 
 private:
     Ui::MainWindow *ui;

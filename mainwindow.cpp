@@ -273,16 +273,16 @@ void MainWindow::RecibirDatos(uint8_t head){
         actualControlMode = ringRx.buf[head++];
         switch (actualControlMode) {
         case MANUAL_MODE:
-            ui->but_cambio_mode->setText("MANUAL");
+            ui->label_mode->setText("MANUAL");
             break;
         case AUTOMATIC_MODE:
-            ui->but_cambio_mode->setText("AUTOMATICO");
+            ui->label_mode->setText("AUTOMATICO");
             break;
         case INIT_MODE:
-            ui->but_cambio_mode->setText("INIT");
+            ui->label_mode->setText("INIT");
             break;
         case BRAKE_MODE:
-            ui->but_cambio_mode->setText("BRAKE MODE");
+            ui->label_mode->setText("BRAKE MODE");
             break;
         default:
             break;
@@ -292,16 +292,16 @@ void MainWindow::RecibirDatos(uint8_t head){
         actualControlMode = ringRx.buf[head++];
         switch (actualControlMode) {
         case MANUAL_MODE:
-            ui->but_cambio_mode->setText("MANUAL");
+            ui->label_mode->setText("MANUAL");
             break;
         case AUTOMATIC_MODE:
-            ui->but_cambio_mode->setText("AUTOMATICO");
+            ui->label_mode->setText("AUTOMATICO");
             break;
         case INIT_MODE:
-            ui->but_cambio_mode->setText("INIT");
+            ui->label_mode->setText("INIT");
             break;
         case BRAKE_MODE:
-            ui->but_cambio_mode->setText("BRAKE MODE");
+            ui->label_mode->setText("BRAKE MODE");
             break;
         default:
             break;
@@ -1055,24 +1055,6 @@ void MainWindow::on_back_but_viaje_2_released()
    ui->stackedWidget->setCurrentIndex(LLEGADA);
 }
 
-
-void MainWindow::on_but_cambio_mode_released()
-{
-   crearArrayCMD(CHANGE_MODE_CMD, ID_M_VEL);
-   if(actualControlMode == MANUAL_MODE){
-        payloadCAN[1] = AUTOMATIC_MODE;
-        //ui->but_cambio_mode->setText("AUTOMATICO");
-   }
-   else{
-        payloadCAN[1] = MANUAL_MODE;
-        //ui->but_cambio_mode->setText("AUTOMATICO");
-   }
-   EnviarComando(0x0B, CHANGE_MODE_CMD, payloadCAN);
-}
-
-
-
-
 void MainWindow::on_back_but_LLEGADA_released()
 {
    ui->stackedWidget->setCurrentIndex(VIAJANDO);
@@ -1270,5 +1252,32 @@ bool MainWindow::button_confirm() {
     } else {
         return false;
     }
+}
+
+
+void MainWindow::on_but_cambio_mode_AUT_released()
+{
+    crearArrayCMD(CHANGE_MODE_CMD, ID_M_VEL);
+    payloadCAN[1] = AUTOMATIC_MODE;
+    EnviarComando(0x0B, CHANGE_MODE_CMD, payloadCAN);
+    ui->label_mode->setText("Automatico");
+}
+
+
+void MainWindow::on_but_cambio_mode_MAN_released()
+{
+    crearArrayCMD(CHANGE_MODE_CMD, ID_M_VEL);
+    payloadCAN[1] = MANUAL_MODE;
+    EnviarComando(0x0B, CHANGE_MODE_CMD, payloadCAN);
+    ui->label_mode->setText("Manual");
+}
+
+
+void MainWindow::on_but_cambio_mode_BRAKE_released()
+{
+    crearArrayCMD(CHANGE_MODE_CMD, ID_M_VEL);
+    payloadCAN[1] = BRAKE_MODE;
+    EnviarComando(0x0B, CHANGE_MODE_CMD, payloadCAN);
+    ui->label_mode->setText("Frenado");
 }
 
