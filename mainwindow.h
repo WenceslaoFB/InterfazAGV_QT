@@ -160,8 +160,6 @@ private slots:
 
     bool checkPermission(const QString &action);
 
-    void but_ERROR_SENS_CORRIG();
-
     void on_back_but_ERROR_SENS_released();
 
     void on_back_but_CARGA_released();
@@ -175,6 +173,10 @@ private slots:
     void on_but_cambio_mode_MAN_released();
 
     void on_but_cambio_mode_BRAKE_released();
+
+    void magneticSensorVista();
+
+    void on_but_ERROR_SENS_CORRIG_released();
 
 private:
     Ui::MainWindow *ui;
@@ -197,7 +199,8 @@ private:
 
     uint8_t TX[256], payloadCAN[256],RX[256],indiceRX_r=0,indiceRX_t=0, sensorDats[9];
     uint8_t payloadCANs[9], INV_1 = 0, Dist_enable = 0,  destino = 0, index_dist = 0, Sesion_iniciada = 0, carga_full = 0, cargador_conec = 2;
-    uint8_t actualControlMode = 0;
+    uint8_t actualControlMode = 0, init_viaje = 0;
+    uint16_t COORD_SENSORES[8], sens_stat;
     float vel_aux = 0, vel_slid = 0, pos_aux=0, dist_aux=0;
 
     float Dist_prom[5];
@@ -207,7 +210,7 @@ private:
     _sWork pos_cmd, pos_ing, velocidad_cmd, distance_sensor,KP_SteeringMotor,KD_SteeringMotor,KI_SteeringMotor;
     _sWork RealSpeedVEL,StatusWordVEL,RealCurrentVEL; //Variables para almacenar datos enviados del motor velocidad por TPDO1
     _sWork RealPositionDIR,StatusWordDIR,RealCurrentDIR;//Variables para almacenar datos enviados del motor direccion por TPDO1
-    _sWork RealDistance, voltaje_bat, corriente_bat;
+    _sWork RealDistance, voltaje_bat, corriente_bat, magneticSensorBitStatus;
 
     volatile _sFlag flagFaults;
 

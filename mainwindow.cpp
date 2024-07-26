@@ -270,7 +270,7 @@ void MainWindow::Decode(){
 void MainWindow::RecibirDatos(uint8_t head){
     switch (ringRx.buf[head++]){
     case 0xD2:
-        actualControlMode = ringRx.buf[head++];
+        //actualControlMode = ringRx.buf[head++];
         switch (actualControlMode) {
         case MANUAL_MODE:
             ui->label_mode->setText("MANUAL");
@@ -306,7 +306,9 @@ void MainWindow::RecibirDatos(uint8_t head){
         default:
             break;
         }
-
+        magneticSensorBitStatus.u8[0] = ringRx.buf[head++];
+        magneticSensorBitStatus.u8[1] = ringRx.buf[head++];
+        magneticSensorVista();
         break;
     case ENABLE_MOTOR_CMD:
         break;
@@ -368,7 +370,9 @@ void MainWindow::RecibirDatos(uint8_t head){
         ui->stackedWidget->setCurrentIndex(SELECCION);
         break;
     case OUT_OF_LINE_CMD:
-        ui->stackedWidget->setCurrentIndex(EROR_LINEA);
+        if(actualControlMode == AUTOMATIC_MODE){
+            ui->stackedWidget->setCurrentIndex(EROR_LINEA);
+        }
         break;
     case CARGA_COMPLETA:
         voltaje_bat.u8[0] = ringRx.buf[head++];
@@ -441,7 +445,7 @@ void MainWindow::crearArrayCMD(uint8_t cmd, uint8_t id){
         payloadCAN[8] |= ((uint8_t)ui->sens6->isChecked()<<2);
         payloadCAN[8] |= ((uint8_t)ui->sens7->isChecked()<<3);
         break;
-    case 0xCF://Parametros PID sensor mag
+    case PID_PARAMETERS_CMD://Parametros PID sensor mag
         payloadCAN[0] = id;
         payloadCAN[1] = KP_SteeringMotor.u8[0];
         payloadCAN[2] = KP_SteeringMotor.u8[1];
@@ -873,8 +877,8 @@ void MainWindow::on_pushButton_PID_Steering_pressed()
     KD_SteeringMotor.u32 = ui->line_kd_steering->text().toUInt();
     KI_SteeringMotor.u32 = ui->line_ki_steering->text().toUInt();
 
-    crearArrayCMD(0xCF,ID_M_DIREC);
-    EnviarComando(0x0B,0xCF,payloadCAN);
+    crearArrayCMD(PID_PARAMETERS_CMD,ID_M_DIREC);
+    EnviarComando(0x0B,PID_PARAMETERS_CMD,payloadCAN);
 
 
 }
@@ -1204,14 +1208,6 @@ void MainWindow::on_back_but_ERROR_SENS_released()
     ui->stackedWidget->setCurrentIndex(PRINCIPAL);
 }
 
-
-void MainWindow::but_ERROR_SENS_CORRIG()
-{
-    crearArrayCMD(OUT_OF_LINE_CMD,0);
-    EnviarComando(0x0B,OUT_OF_LINE_CMD,payloadCAN);
-    ui->stackedWidget->setCurrentIndex(VIAJANDO);
-}
-
 void MainWindow::on_back_but_CARGA_released()
 {
    ui->stackedWidget->setCurrentIndex(PRINCIPAL);
@@ -1248,6 +1244,7 @@ bool MainWindow::button_confirm() {
     int reply = msgBox.exec();
 
     if (reply == QMessageBox::Yes) {
+            init_viaje = 1;
         return true;
     } else {
         return false;
@@ -1279,5 +1276,36 @@ void MainWindow::on_but_cambio_mode_BRAKE_released()
     payloadCAN[1] = BRAKE_MODE;
     EnviarComando(0x0B, CHANGE_MODE_CMD, payloadCAN);
     ui->label_mode->setText("Frenado");
+}
+
+void MainWindow::magneticSensorVista(){
+
+    sens_stat = magneticSensorBitStatus.u16[0];
+    COORD_SENSORES[0] = (sens_stat & (1 << 11))>>11;
+    COORD_SENSORES[1] = (sens_stat & (1 << 10))>>10;
+    COORD_SENSORES[2] = (sens_stat & (1 << 9))>>9;
+    COORD_SENSORES[3] = (sens_stat & (1 << 8))>>8;
+    // -------------------------- LOW ------------------------- //
+    COORD_SENSORES[4] = (sens_stat & (1 << 3))>>3;
+    COORD_SENSORES[5] = (sens_stat & (1 << 2))>>2;
+    COORD_SENSORES[6] = (sens_stat & (1 << 1))>>1;
+    COORD_SENSORES[7] = (sens_stat & (1 << 0));
+
+    ui->sens0_view->setChecked(COORD_SENSORES[0]);
+    ui->sens1_view->setChecked(COORD_SENSORES[1]);
+    ui->sens2_view->setChecked(COORD_SENSORES[2]);
+    ui->sens3_view->setChecked(COORD_SENSORES[3]);
+    ui->sens4_view->setChecked(COORD_SENSORES[4]);
+    ui->sens5_view->setChecked(COORD_SENSORES[5]);
+    ui->sens6_view->setChecked(COORD_SENSORES[6]);
+    ui->sens7_view->setChecked(COORD_SENSORES[7]);
+}
+
+
+void MainWindow::on_but_ERROR_SENS_CORRIG_released()
+{
+    crearArrayCMD(OUT_OF_LINE_CMD,0);
+    EnviarComando(0x0B,OUT_OF_LINE_CMD,payloadCAN);
+    ui->stackedWidget->setCurrentIndex(VIAJANDO);
 }
 

@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="CONTROL">
      <widget class="QTabWidget" name="tabWidget">
@@ -2276,6 +2276,381 @@ QPushButton:pressed {
        <zorder>label_13</zorder>
        <zorder>SLID_distance</zorder>
        <zorder>label_14</zorder>
+      </widget>
+      <widget class="QWidget" name="tab_5">
+       <attribute name="title">
+        <string>Sens. Mag.</string>
+       </attribute>
+       <widget class="QLabel" name="label_45">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>60</y>
+          <width>271</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>20</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #14342c;
+    font-weight: bold;
+	border: 3px solid;
+	border-radius: 10px;
+	border-color:  #1c9c4c;
+	background-color:  white;
+}</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; color:#14342c;&quot;&gt;Vista de Sensores&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_4">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>120</y>
+          <width>971</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="SENSOR_lay_2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QCheckBox" name="sens0_view">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+           </property>
+           <property name="text">
+            <string>Sensor 0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="sens1_view">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+           </property>
+           <property name="text">
+            <string>Sensor 1</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="sens2_view">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+           </property>
+           <property name="text">
+            <string>Sensor 2</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="sens3_view">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+           </property>
+           <property name="text">
+            <string>Sensor 3</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="sens4_view">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+           </property>
+           <property name="text">
+            <string>Sensor 4</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="sens5_view">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+           </property>
+           <property name="text">
+            <string>Sensor 5</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="sens6_view">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+           </property>
+           <property name="text">
+            <string>Sensor 6</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="sens7_view">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+    /* Estilo del texto de la checkbox */
+    color: #14342c;
+    font-weight: bold;
+}
+
+QCheckBox::indicator {
+    /* Estilo del cuadro de verificación */
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #265c4d;
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    /* Estilo del cuadro de verificación cuando está marcado */
+    background-color: #149c44;
+    border: 2px solid #265c4d;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    /* Estilo del cuadro de verificación no marcado cuando está presionado */
+    background-color: #265c4d;
+}</string>
+           </property>
+           <property name="text">
+            <string>Sensor 7</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </widget>
      </widget>
      <widget class="QPushButton" name="back_but_CONTROL">
