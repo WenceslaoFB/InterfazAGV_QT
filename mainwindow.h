@@ -178,6 +178,8 @@ private slots:
 
     void on_but_ERROR_SENS_CORRIG_released();
 
+    void on_but_EST_1_pressed();
+
 private:
     Ui::MainWindow *ui;
 

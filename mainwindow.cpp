@@ -167,8 +167,8 @@ void MainWindow::updateDistance(double distance) {
 
         RealDistance.f = dist_aux/5.0;
 
-        //crearArrayCMD(DISTANCE_SENSOR_CMD,ID_M_DIREC);
-        //EnviarComando(0x0B, DISTANCE_SENSOR_CMD, payloadCAN);
+        crearArrayCMD(DISTANCE_SENSOR_CMD,ID_M_DIREC);
+        EnviarComando(0x0B, DISTANCE_SENSOR_CMD, payloadCAN);
         dist_aux = 0;
         index_dist = 0;
     }
@@ -370,9 +370,7 @@ void MainWindow::RecibirDatos(uint8_t head){
         ui->stackedWidget->setCurrentIndex(SELECCION);
         break;
     case OUT_OF_LINE_CMD:
-        if(actualControlMode == AUTOMATIC_MODE){
-            ui->stackedWidget->setCurrentIndex(EROR_LINEA);
-        }
+        ui->stackedWidget->setCurrentIndex(EROR_LINEA);
         break;
     case CARGA_COMPLETA:
         voltaje_bat.u8[0] = ringRx.buf[head++];
@@ -1307,5 +1305,11 @@ void MainWindow::on_but_ERROR_SENS_CORRIG_released()
     crearArrayCMD(OUT_OF_LINE_CMD,0);
     EnviarComando(0x0B,OUT_OF_LINE_CMD,payloadCAN);
     ui->stackedWidget->setCurrentIndex(VIAJANDO);
+}
+
+
+void MainWindow::on_but_EST_1_pressed()
+{
+
 }
 
